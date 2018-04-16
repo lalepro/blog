@@ -28,11 +28,24 @@ public class MathController {
         return "Multiplying Method " + x + " multiply " + y + " = " + z;
     }
 
-    @GetMapping("/divide/{x}/by/{y}")
-    @ResponseBody
-    public String divide(@PathVariable int x, @PathVariable int y){
-        int z = x/y;
-        return "Dividing Method " + x + " divided " + y + " = " + z;
+//    @GetMapping("/divide/{x}/by/{y}")
+//    @ResponseBody
+//    public String divide(@PathVariable int x, @PathVariable int y){
+//        int z;
+//        if(x = 0) {
+//            return "error: Cannot use a zero";
+//        } if  (y = 0){
+//            return "error: Cannot use a zero";
+//        }
+//        else {
+//            z = x / y;
+//        }
+//        return "Dividing Method " + x + " divided " + y + " = " + z;
+//    }
 
-    }
+//    @GetMapping("/string/reverse/{string}")
+//    @ResponseBody
+//    public String reverseString(String str){
+//        return str.split("").reverse().join("");
+//    }
 }
