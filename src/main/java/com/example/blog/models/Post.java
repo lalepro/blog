@@ -1,4 +1,4 @@
-package com.example.blog.controllers;
+package com.example.blog.models;
 
 public class Post {
     private static String title;
