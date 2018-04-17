@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.*;
 public class PostController {
     @GetMapping("/posts")
     @ResponseBody
-    public String posts(){
+    public String index(){
         return "posts index page";
     }
 
     @GetMapping("/posts/{id}")
     @ResponseBody
-    public String posts(@PathVariable Integer id){
+    public String show(@PathVariable Integer id){
         return "Return id " + id;
     }
 
