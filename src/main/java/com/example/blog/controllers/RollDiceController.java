@@ -11,13 +11,18 @@ public class RollDiceController {
         return "roll-dice";
     }
 
-    @GetMapping("/rollDice/{guess}")
+    @GetMapping("/dice-roll/{guess}")
     public String rollDice(@PathVariable int guess, Model model) {
-        int random = (int) (Math.random() * 6) + 1;
-        boolean result = random == guess;
-        model.addAttribute("result", result);
-        model.addAttribute("number", random);
+        int random = (int) (Math.random() * 6 + 1);
+        boolean win;
+        if(random == guess) {
+            win = true;
+        } else {
+            win = false;
+        }
+        model.addAttribute("random", random);
         model.addAttribute("guess", guess);
-        return "rollDice";
+        model.addAttribute("win", win);
+        return "dice-roll";
     }
 }
