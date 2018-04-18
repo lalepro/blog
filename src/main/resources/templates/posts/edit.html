@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/header :: header('Create Post')"></head>
 <body>
-$END$
+<div th:replace="partials/navbar :: navbar"></div>
+<div class="container topMarginShow">
+    <form th:action="@{/posts/edit}" method="post" th:object="${editPost}">
+        Title:
+        <input th:field="*{title}" />
+        <br />
+        Description:
+        <input th:field="*{body}" />
+        <br />
+        <input type="hidden" th:field="*{id}" th:value="${id}"/>
+        <input type="submit" />
+    </form>
+</div>
+<div th:replace="partials/footer :: footer"></div>
 </body>
 </html>
