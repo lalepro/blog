@@ -6,8 +6,12 @@
 <nav th:include="partials/navbar :: navbar"></nav>
 
 <div th:each="post : ${posts}">
-            <h3 th:text="${post.title}"></h3>
-            <p th:text="${post.body}"></p>
+            <h3>
+                <span th:text="${post.title}"></span>
+            </h3>
+            <p>
+                <span th:text="${post.body}"></span>
+            </p>
 </div>
 
 <footer th:include="partials/footer :: footer"></footer>
