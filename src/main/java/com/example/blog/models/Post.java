@@ -1,6 +1,8 @@
 package com.example.blog.models;
+import javax.persistence.*;
 
 public class Post {
+
     private static String title;
     private static String body;
 
