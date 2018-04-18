@@ -6,12 +6,14 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="container topMarginShow">
 <div th:each="post : ${posts}">
-            <h3>
+            <h2>
+                <span th:text="${post.id}"></span>
+
                 <span th:text="${post.title}"></span>
-            </h3>
-            <p>
+            </h2>
+            <h4>
                 <span th:text="${post.body}"></span>
-            </p>
+            </h4>
 </div>
 </div>
 <footer th:include="partials/footer :: footer"></footer>
