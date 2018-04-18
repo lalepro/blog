@@ -1,9 +1,14 @@
 package com.example.blog.models;
 import javax.persistence.*;
 
+//@Entity
+//@Table(name="posts")
 public class Post{
 
+//    @Id
+//    @GeneratedValue
     private long id;
+
     private String title;
     private String body;
 
