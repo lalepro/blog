@@ -12,7 +12,7 @@ public class PostService {
 
     public PostService(){
         posts = new ArrayList<>();
-        createAds();
+        createPosts();
     }
     public List<Post> findAll(){
         return posts;
@@ -24,14 +24,18 @@ public class PostService {
         return post;
     }
 
-    public Post findOne(int id){
-        return posts.get(id -1);
+    public Post findOne(long id){
+        return posts.get((int) id -1);
     }
 
-    private void createAds(){
+    private void createPosts(){
         save(new Post("Great Day to Code", "Why Hike or Bike when you can trek in tech land"));
         save(new Post("Hump Day!", "When you want it to be Friday but it's not"));
         save(new Post("4 weeks to Capstone!", "I'm Fine! Fake it til ya make it!"));
 
+    }
+
+    public void createNewPost(Post post){
+        this.posts.add(post);
     }
 }
