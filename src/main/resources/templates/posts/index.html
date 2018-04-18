@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:include="partials/header :: header('Posts')">
 </head>
 <body>
+<nav th:include="partials/navbar :: navbar"></nav>
 
+<div th:each="post : ${posts}">
+    <ul>
+        <li>
+            <!--<a th:href="@{/posts/{id}(id=${post.id})}">-->
+            <h3 th:text="${post.title}"></h3>
+            <!--</a>-->
+            <p th:text="${post.body}"></p>
+        </li>
+    </ul>
+</div>
+
+<footer th:include="partials/footer :: footer"></footer>
 </body>
 </html>
