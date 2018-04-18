@@ -1,10 +1,20 @@
 package com.example.blog.models;
 import javax.persistence.*;
 
-public class Post {
+public class Post{
 
     private static String title;
     private static String body;
+
+
+    public Post(String title, String body) {
+        this.title = title;
+        this.body = body;
+    }
+
+    public Post() {
+    }
+
 
     public static String getTitle() {
         return title;

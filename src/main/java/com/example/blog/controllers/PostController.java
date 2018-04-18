@@ -10,20 +10,20 @@ import java.util.List;
 
 @Controller
 public class PostController {
-    private final PostService postSvc;
-
-    public PostsController(PostService postSvc) {
-        this.postSvc = postSvc;
-    }
+//    private final PostService postSvc;
+//
+//    public PostsController(PostService postSvc) {
+//        this.postSvc = postSvc;
+//    }
 
     @GetMapping("/posts")
     public String index( Model model){
                 List<Post> posts = new ArrayList<>();
-        Post post1 = new Post(1L,"first title", "first body");
-        Post post2 = new Post(2L, "second title", "second body");
+        Post post1 = new Post("first title", "first body");
+        Post post2 = new Post("second title", "second body");
         posts.add(post1);
         posts.add(post2);
-//        model.addAttribute("posts", postSvc.findAll());
+        model.addAttribute("posts", posts);
         return "/posts/index";
     }
 
@@ -43,7 +43,7 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String insert( @ModelAttribute Post post){
-        postSvc.save(post);
+//        postSvc.save(post);
         return "redirect:/posts";
     }
 }
