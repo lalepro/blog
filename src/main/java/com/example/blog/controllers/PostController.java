@@ -37,14 +37,13 @@ public class PostController {
 
     @GetMapping("/posts/create")
     public String create(Model model){
-        Post post = new Post();
-        model.addAttribute("post", post);
+        model.addAttribute("newPost", new Post());
         return "/posts/create";
     }
 
     @PostMapping("/posts/create")
-    public String insert( @ModelAttribute Post post){
-        postSvc.save(post);
+    public String insert(@ModelAttribute Post newPost){
+        postSvc.createNewPost(newPost);
         return "redirect:/posts";
     }
 }
