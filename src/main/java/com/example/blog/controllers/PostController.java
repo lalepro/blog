@@ -29,7 +29,7 @@ public class PostController {
     }
 
     @GetMapping("/posts/{id}")
-    public String show(@PathVariable Integer id, Model model){
+    public String show(@PathVariable long id, Model model){
 //        Post post = new Post(1,"first post title", "first post body");
         model.addAttribute("post", postSvc.findOne(id));
         return "/posts/show";
@@ -44,6 +44,20 @@ public class PostController {
     @PostMapping("/posts/create")
     public String insert(@ModelAttribute Post newPost){
         postSvc.createNewPost(newPost);
+        return "redirect:/posts";
+    }
+
+    @GetMapping("/posts/{id}/edit")
+    public String edit(@PathVariable long id, Model model){
+        model.addAttribute("editPost", postSvc.findOne(id));
+        return "posts/edit";
+    }
+
+    @PostMapping("/posts/edit")
+    public String update(@ModelAttribute Post editPost){
+        Post e = postSvc.findOne();
+        e.
+
         return "redirect:/posts";
     }
 }
