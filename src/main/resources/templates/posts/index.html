@@ -3,8 +3,8 @@
 <head th:include="partials/header :: header('Posts')">
 </head>
 <body>
-<nav th:include="partials/navbar :: navbar"></nav>
-
+<nav th:replace="partials/navbar :: navbar"></nav>
+<div class="container topMarginShow">
 <div th:each="post : ${posts}">
             <h3>
                 <span th:text="${post.title}"></span>
@@ -13,7 +13,7 @@
                 <span th:text="${post.body}"></span>
             </p>
 </div>
-
+</div>
 <footer th:include="partials/footer :: footer"></footer>
 </body>
 </html>
