@@ -3,11 +3,12 @@ import javax.persistence.*;
 
 public class Post{
 
-    private static String title;
-    private static String body;
+    private int id;
+    private String title;
+    private String body;
 
 
-    public Post(String title, String body) {
+    public Post( String title, String body) {
         this.title = title;
         this.body = body;
     }
@@ -15,20 +16,27 @@ public class Post{
     public Post() {
     }
 
+    public int getId() {
+        return id;
+    }
 
-    public static String getTitle() {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
         return title;
     }
 
-    public static void setTitle(String title) {
-        Post.title = title;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public static String getBody() {
+    public String getBody() {
         return body;
     }
 
-    public static void setBody(String body) {
-        Post.body = body;
+    public void setBody(String body) {
+        this.body = body;
     }
 }
