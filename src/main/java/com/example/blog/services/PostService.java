@@ -18,10 +18,9 @@ public class PostService {
         return posts;
     }
 
-    public Post save(Post post){
+    public void save(Post post){
         post.setId(posts.size() + 1);
         posts.add(post);
-        return post;
     }
 
     public Post findOne(long id){
@@ -36,6 +35,9 @@ public class PostService {
     }
 
     public void createNewPost(Post post){
-        this.posts.add(post);
+        post.setId(posts.size());
+        posts.add(post);
     }
+
+
 }
