@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:include="partials/header :: header('Posts')">
+<head th:include="partials/header :: header('blog')">
 </head>
 <body>
 <div><nav th:replace="partials/navbar :: navbar"></nav></div>
 
 <div class="container topMarginShow">
-
-        <a th:href="@{/posts/index}"><button type="button" class="btn btn-default">Posts</button></a>
+        <blockquote>Exercise the writing muscle every day, even if it is only a letter, notes, a title list, a character sketch, a journal entry. Writers are like dancers, like athletes. Without that exercise, the muscles seize up.
+                – Jane Yolen</blockquote>
+        <div class="blogImage" >
+                <a th:href="@{/posts/titles}"><img src="../../static/images/Enter.gif" height="200" width="200"/></a>
+        </div>
 
 </div>
 <footer th:include="partials/footer :: footer"></footer>
