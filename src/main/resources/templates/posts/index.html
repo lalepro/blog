@@ -3,17 +3,21 @@
 <head th:include="partials/header :: header('Posts')">
 </head>
 <body>
-<nav th:replace="partials/navbar :: navbar"></nav>
-<div class="container topMarginShow">
-<div th:each="post : ${posts}">
-            <h2>
-                <span th:text="${post.id}"></span>
+<div><nav th:replace="partials/navbar :: navbar"></nav></div>
 
-                <span th:text="${post.title}"></span>
+<div class="container topMarginShow">
+
+<div class="blogBackground" th:each="post : ${posts}">
+            <h2>
+                <span id="TitleIndex" th:text="${post.title}"></span>
             </h2>
             <h4>
                 <span th:text="${post.body}"></span>
             </h4>
+            <div class="edit-image">
+            <a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}"><img
+                    src="../../static/images/editIcon.png"/></a>
+            </div>
 </div>
 </div>
 <footer th:include="partials/footer :: footer"></footer>
