@@ -12,13 +12,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">LLP</a>
+            <a class="navbar-brand" th:href="@{/blog/}">Blog</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a th:href="@{/posts/}">Home</a></li>
+                <li><a href="https://lalepro.github.io./">About Me</a></li>
+                <li><a th:href="@{/posts/create}">Create</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
