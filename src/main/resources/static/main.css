@@ -1,3 +1,65 @@
 .topMarginShow{
     margin-top: 50px;
+    background-color: rgba(0, 0, 0, 0.45);
+
 }
+
+.topMarginShow{
+    padding-bottom: 100px;
+}
+
+.blogImage{
+    /*display: block;*/
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+
+}
+
+.title-center{
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+blockquote{
+    font-size: 2em;
+    color: #b0b0b0;
+    font-family: "American Typewriter";
+}
+
+body{
+    background-image: url("/images/Background.jpg");
+}
+
+.body-width{
+    width: 90%;
+    padding-left: 25px;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+    color: whitesmoke;
+    line-height: 35px;
+
+}
+
+#IndexTitles {
+    font-family: "American Typewriter";
+    color: #b7b7b7;
+    margin-left: 20px;
+}
+
+.edit-image{
+    width: 30px;
+    height: 30px;
+}
+
+.edit-image img{
+    width: 100%;
+
+}
+
+.blogBackground{
+    background-color: rgba(32, 32, 32, 0.94);
+}
+
+
