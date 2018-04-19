@@ -5,11 +5,11 @@
 <div th:replace="partials/navbar :: navbar"></div>
 <div class="container topMarginShow">
 <form th:action="@{/posts/create}" method="post" th:object="${newPost}">
-    Title:
-    <input th:field="*{title}" th:value="${title}"/>
+    <h3>Blog Entry</h3>
+    <input th:field="*{title}" th:value="${title}" placeholder="Blog Title"/>
     <br />
-    Description:
-    <input th:field="*{body}" th:value="${body}"/>
+
+    <textarea th:field="*{body}" th:value="${body}" placeholder="Write your blog"></textarea>
     <br />
     <input type="submit" />
 </form>
