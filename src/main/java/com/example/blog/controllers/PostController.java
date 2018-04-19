@@ -1,20 +1,20 @@
 package com.example.blog.controllers;
 
+import com.example.blog.daos.PostsRepository;
 import com.example.blog.models.Post;
 import com.example.blog.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class PostController {
     private final PostService postSvc;
+    private final PostsRepository postRepo;
 
-    public PostController(PostService postSvc) {
+    public PostController(PostService postSvc, PostsRepository postRepo) {
         this.postSvc = postSvc;
+        this.postRepo = postRepo;
     }
 
     @GetMapping("/posts")
@@ -24,14 +24,14 @@ public class PostController {
 //        Post post2 = new Post(2, "second title", "second body");
 //        posts.add(post1);
 //        posts.add(post2);
-        model.addAttribute("posts", postSvc.findAll());
+        model.addAttribute("posts", postRepo.findAll());
         return "/posts/index";
     }
 
     @GetMapping("/posts/{id}")
     public String show(@PathVariable long id, Model model){
 //        Post post = new Post(1,"first post title", "first post body");
-        model.addAttribute("post", postSvc.findOne(id));
+        model.addAttribute("post", postRepo.findOne(id));
         return "/posts/show";
     }
 
@@ -43,21 +43,29 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String insert(@ModelAttribute Post newPost){
-        postSvc.createNewPost(newPost);
+        postRepo.save(newPost);
         return "redirect:/posts";
     }
 
     @GetMapping("/posts/{id}/edit")
     public String edit(@PathVariable long id, Model model){
-        model.addAttribute("editPost", postSvc.findOne(id));
+        model.addAttribute("editPost", postRepo.findOne(id));
         return "posts/edit";
     }
 
     @PostMapping("/posts/edit")
     public String update(@ModelAttribute Post editPost){
-        Post e = postSvc.findOne(editPost.getId());
+        Post e = postRepo.findOne(editPost.getId());
         e.setTitle(editPost.getTitle());
         e.setBody(editPost.getBody());
+        postRepo.save(e);
         return "redirect:/posts";
+    }
+
+    @GetMapping("/posts/{id}/delete")
+    public String delete(@PathVariable long id){
+        postRepo.delete(id);
+        return "redirect:/posts";
+
     }
 }
