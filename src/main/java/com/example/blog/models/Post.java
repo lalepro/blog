@@ -1,6 +1,7 @@
 package com.example.blog.models;
 import javax.persistence.*;
 
+//TODO: #3 Add the appropriate JPA annotations to your Post class.
 @Entity
 @Table(name="posts")
 public class Post{
