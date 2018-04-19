@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/header :: header('show')"></head>
+<!--${post.getTitle()}-->
 <body>
-$END$
+<div th:replace="partials/navbar :: navbar"></div>
+<div class="container topMarginShow">
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <h1 class="title-center">
+                <span th:text="${post.title}"></span>
+            </h1>
+            <h4 class="body-width">
+                <span th:text="${post.body}"></span>
+            </h4>
+        </div>
+    </div>
+</div>
+<div th:replace="partials/footer :: footer"></div>
 </body>
 </html>
