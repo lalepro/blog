@@ -1,4 +1,4 @@
-package com.example.blog.models;
+package com.example.blog.models.dog_user;
 
 import javax.persistence.*;
 import java.io.Serializable;
