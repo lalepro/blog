@@ -13,8 +13,8 @@
         <p>
             <span th:text="${post.body}"></span>
         </p>
-        <a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}">Edit</a>
-        <a th:href="@{/posts/{postId}/delete(postId=${post.getId()})}">Delete</a>
+        <a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}"><button type="button" class="btn btn-default">Edit</button></a>
+        <a th:href="@{/posts/{postId}/delete(postId=${post.getId()})}"><button type="button" class="btn btn-default">Delete/button></a>
     </div>
 </div>
 </div>
