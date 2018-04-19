@@ -55,9 +55,9 @@ public class PostController {
 
     @PostMapping("/posts/edit")
     public String update(@ModelAttribute Post editPost){
-        Post e = postSvc.findOne();
-        e.
-
+        Post e = postSvc.findOne(editPost.getId());
+        e.setTitle(editPost.getTitle());
+        e.setBody(editPost.getBody());
         return "redirect:/posts";
     }
 }
