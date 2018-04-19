@@ -1,15 +1,17 @@
 package com.example.blog.models;
 import javax.persistence.*;
 
-//@Entity
-//@Table(name="posts")
+@Entity
+@Table(name="posts")
 public class Post{
 
-//    @Id
-//    @GeneratedValue
+    @Id
+    @GeneratedValue
     private long id;
 
+    @Column(nullable = false, length = 100)
     private String title;
+    @Column(nullable = false)
     private String body;
 
 
