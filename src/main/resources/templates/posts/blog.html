@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/header :: header('Posts')">
+</head>
+<body>
+<div><nav th:replace="partials/navbar :: navbar"></nav></div>
+
+<div class="container topMarginShow">
+
+        <a th:href="@{/posts/index}"><button type="button" class="btn btn-default">Posts</button></a>
+
+</div>
+<footer th:include="partials/footer :: footer"></footer>
+</body>
+</html>

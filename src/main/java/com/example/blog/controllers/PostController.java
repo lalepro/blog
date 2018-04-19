@@ -16,6 +16,23 @@ public class PostController {
         this.postSvc = postSvc;
         this.postRepo = postRepo;
     }
+    @GetMapping("/blog")
+    public String blog(Model model){
+        model.addAttribute("posts", postRepo.findAll());
+        return "/posts/blog";
+    }
+
+    @GetMapping("/posts/titles")
+    public String titles(Model model){
+        model.addAttribute("posts", postRepo.findAll());
+        return "/posts/titles";
+    }
+
+    @GetMapping("/posts/{id}/view")
+    public String viewOne(@PathVariable long id, Model model){
+        model.addAttribute("post", postRepo.findOne(id));
+        return "/posts/view";
+    }
 
     @GetMapping("/posts")
     public String index( Model model){
