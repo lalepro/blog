@@ -14,6 +14,7 @@ public class Post{
 
     @Column(nullable = false, length = 100)
     private String title;
+
     @Column(nullable = false, columnDefinition = "Text")
     private String body;
 
@@ -28,9 +29,10 @@ public class Post{
     @OneToOne
     private PostDetails postDetails;
 
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name="posts_categoies",
+            name="posts_categories",
             joinColumns = {@JoinColumn(name="post_id")},
             inverseJoinColumns = {@JoinColumn(name="category_id")}
     )
@@ -87,4 +89,28 @@ public class Post{
     public void setUser(User user) {
         this.user = user;
     }
+    public List<PostImage> getImages() {
+        return images;
+    }
+
+    public void setImages(List<PostImage> images) {
+        this.images = images;
+    }
+
+    public PostDetails getPostDetails() {
+        return postDetails;
+    }
+
+    public void setPostDetails(PostDetails postDetails) {
+        this.postDetails = postDetails;
+    }
+
+    public List<Categories> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Categories> categories) {
+        this.categories = categories;
+    }
+
 }
