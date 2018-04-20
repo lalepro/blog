@@ -6,10 +6,13 @@
 <div><nav th:replace="partials/navbar :: navbar"></nav></div>
 
 <div class="container topMarginShow">
+    <h1 class="all-blogs-title">Blog City</h1>
 
 <div class="blogBackground" th:each="post : ${posts}">
             <h2>
-                <span id="TitleIndex" th:text="${post.title}"></span>
+                <a th:href="@{/posts/{postId}(postId=${post.getId()})}">
+                    <span id="TitleIndex" th:text="${post.title}"></span>
+                </a>
             </h2>
             <h4>
                 <span th:text="${post.body}"></span>
