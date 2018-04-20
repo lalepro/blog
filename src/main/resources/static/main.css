@@ -70,7 +70,7 @@ body{
 }
 
 h1,h2,h3,h4,h5,h6,p{
-    color: whitesmoke;
+    color: #d3d3d3;
     line-height: 35px;
 
 }
@@ -91,8 +91,24 @@ h1,h2,h3,h4,h5,h6,p{
 
 }
 
-.blogBackground{
+.feather{
+    padding-top: 15px;
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+
+}
+.feather img{
+    width: 100%;
+}
+
+.blogBackground {
     background-color: rgba(32, 32, 32, 0.94);
+}
+
+.row{
+    /*background-color: rgba(32, 32, 32, 0.94);*/
 }
 
 .titleColor{
@@ -105,5 +121,18 @@ h1,h2,h3,h4,h5,h6,p{
 
 .all-blogs-title{
     text-align: center;
+    padding-bottom: 30px;
 }
+
+.showTitle{
+    text-align: center;
+}
+
+.show-blog{
+    background-color: rgba(15, 15, 15, 0.43);
+    width: 90%;
+    margin-left: 5%;
+}
+
+
 
