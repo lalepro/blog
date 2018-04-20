@@ -1,6 +1,7 @@
 package com.example.blog.controllers;
 
 import com.example.blog.daos.PostsRepository;
+import com.example.blog.daos.UsersRepository;
 import com.example.blog.models.Post;
 import com.example.blog.services.PostService;
 import org.springframework.stereotype.Controller;
@@ -11,10 +12,12 @@ import org.springframework.web.bind.annotation.*;
 public class PostController {
     private final PostService postSvc;
     private final PostsRepository postRepo;
+    private final UsersRepository usersRepo;
 
-    public PostController(PostService postSvc, PostsRepository postRepo) {
+    public PostController(PostService postSvc, PostsRepository postRepo, UsersRepository usersRepo) {
         this.postSvc = postSvc;
         this.postRepo = postRepo;
+        this.usersRepo = usersRepo;
     }
     @GetMapping("/blog")
     public String blog(Model model){
