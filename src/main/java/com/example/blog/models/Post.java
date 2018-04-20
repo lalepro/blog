@@ -15,15 +15,29 @@ public class Post{
     @Column(nullable = false, columnDefinition = "Text")
     private String body;
 
+    public User getUser() {
+        return user;
+    }
 
-    public Post( String title, String body) {
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @OneToOne
+//    TODO: Create the connection with a property to a object
+    private User user;
+//    TODO: add relationship to both constructors
+
+    public Post( String title, String body, User user) {
         this.title = title;
         this.body = body;
+        this.user = user;
     }
-    public Post(long id, String title, String body) {
+    public Post(long id, String title, String body, User user) {
         this.id = id;
         this.title = title;
         this.body = body;
+        this.user = user;
     }
 
     public Post() {
