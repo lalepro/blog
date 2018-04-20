@@ -6,10 +6,15 @@
 <div><nav th:replace="partials/navbar :: navbar"></nav></div>
 
 <div class="container topMarginShow">
-    <h1 class="all-blogs-title">Blog City</h1>
+    <h1 class="all-blogs-title">Blog Log</h1>
 
 <div class="blogBackground" th:each="post : ${posts}">
-            <h2>
+        <div class="feather">
+            <a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}">
+        <img src="../../static/images/Feather.png"/>
+            </a>
+        </div>
+    <h2>
                 <a th:href="@{/posts/{postId}(postId=${post.getId()})}">
                     <span id="TitleIndex" th:text="${post.title}"></span>
                 </a>
@@ -17,10 +22,10 @@
             <h4>
                 <span th:text="${post.body}"></span>
             </h4>
-            <div class="edit-image">
-            <a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}"><img
-                    src="../../static/images/editIcon.png"/></a>
-            </div>
+            <!--<div class="edit-image">-->
+            <!--<a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}"><img-->
+                    <!--src="../../static/images/editIcon.png"/></a>-->
+            <!--</div>-->
 </div>
 </div>
 <footer th:include="partials/footer :: footer"></footer>
