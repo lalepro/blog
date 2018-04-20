@@ -3,8 +3,8 @@ package com.example.blog.models.dog_user;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "dogs")
+//@Entity
+//@Table(name = "dogs")
 public class Dog {
     @Id
     @GeneratedValue
