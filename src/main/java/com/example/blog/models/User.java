@@ -20,10 +20,6 @@ public class User {
 //    TODO: annotation for length, and characters needed, uppercase, lowercase
     private String password;
 
-//    TODO: Separate concerns in relationships postDetails
-
-
-//TODO: 3 constructors and getters and setters
 
 
     public User() {
