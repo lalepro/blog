@@ -1,16 +1,16 @@
 package com.example.blog.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "post")
-public class UserDetails {
+public class PostDetails {
 
     @Id @GeneratedValue
     private long id;
+
+    @Column
+    private String location;
 
 
 
