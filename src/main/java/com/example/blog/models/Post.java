@@ -1,6 +1,4 @@
 package com.example.blog.models;
-import com.example.blog.daos.PostDetails;
-import com.example.blog.daos.PostImage;
 
 import javax.persistence.*;
 import java.util.List;
@@ -30,21 +28,33 @@ public class Post{
     @OneToOne
     private PostDetails postDetails;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name="posts_categoies",
+            joinColumns = {@JoinColumn(name="post_id")},
+            inverseJoinColumns = {@JoinColumn(name="category_id")}
+    )
+
+    private List<Categories> categories;
+
     public Post() {
     }
 
-    public Post( String title, String body, User user, PostDetails postDetails) {
+    public Post( String title, String body, User user, PostDetails postDetails, List<Categories> categories) {
         this.title = title;
         this.body = body;
         this.user = user;
+        this.postDetails = postDetails;
+        this.categories = categories;
     }
-    public Post(long id, String title, String body, User user, PostDetails postDetails, List<PostImage> images) {
+    public Post(long id, String title, String body, User user, PostDetails postDetails, List<PostImage> images, List<Categories> categories) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.user = user;
         this.postDetails = postDetails;
         this.images = images;
+        this.categories =  categories;
     }
 
     public long getId() {
