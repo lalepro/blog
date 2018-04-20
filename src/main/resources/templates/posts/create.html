@@ -5,7 +5,7 @@
 <div th:replace="partials/navbar :: navbar"></div>
 <div class="container topMarginShow">
 <form th:action="@{/posts/create}" method="post" th:object="${newPost}">
-    <h3>Blog Entry</h3>
+    <h3 class="blog-entry-title">Blog Entry</h3>
     <input th:field="*{title}" th:value="${title}" placeholder="Blog Title"/>
     <br />
 

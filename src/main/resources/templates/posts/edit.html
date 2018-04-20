@@ -5,7 +5,7 @@
 <div th:replace="partials/navbar :: navbar"></div>
 <div class="container topMarginShow">
     <form th:action="@{/posts/edit}" method="post" th:object="${editPost}">
-        <h2>Blog Editing</h2>
+        <h2 class="blog-entry-title">Blog Editing</h2>
         <input th:field="*{title}" />
         <br />
         <textarea th:field="*{body}"></textarea>

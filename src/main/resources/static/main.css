@@ -37,6 +37,7 @@ body > div:nth-child(1) > nav > div > div.navbar-header > a{
 .title-center{
     text-align: center;
     padding-bottom: 30px;
+    font-family: "American Typewriter";
 }
 
 blockquote{
@@ -111,21 +112,29 @@ h1,h2,h3,h4,h5,h6,p{
     /*background-color: rgba(32, 32, 32, 0.94);*/
 }
 
-.titleColor{
+.titles-color{
     color: #b7b7b7;
+    font-family: "American Typewriter";
+    /*margin-left: 10%;*/
+    padding-left: 10%;
+
 }
 
 .titleblog{
     text-align: center;
+    font-family: "American Typewriter";
 }
 
 .all-blogs-title{
+    font-family: "American Typewriter";
+    font-size: 3em;
     text-align: center;
-    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 .showTitle{
     text-align: center;
+    font-family: "American Typewriter";
 }
 
 .show-blog{
@@ -133,6 +142,91 @@ h1,h2,h3,h4,h5,h6,p{
     width: 90%;
     margin-left: 5%;
 }
+
+.index-title-log{
+    text-align: center;
+    color: #b0b0b0;
+    font-family: "fantasy";
+}
+
+body > div.container.topMarginShow > h4 > a > em{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+}
+
+.blog-entry-title{
+    font-size: 3em;
+    text-align: center;
+    font-family: "American Typewriter";
+    padding-bottom: 30px;
+}
+#title{
+    margin-left: 10%;
+    background-color: #151515;
+    font-size: 19px;
+    color: #e5e5e5;
+    height: 40px;
+    width: 400px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+ textarea{
+     font-size: 19px;
+     color: #e5e5e5;
+     width: 800px;
+     height: 500px;
+     /*padding-left: 15%;*/
+     background-color: #151515;
+     margin-left: 10%;
+ }
+/*Cool Buttons*/
+body > div > form > input[type="submit"]:nth-child(6) {
+    margin-left: 10%;
+    margin-top: 8px;
+    background-color: #151515;
+    color: #b0b0b0;
+    font-size: larger;
+    font-family: "American Typewriter";
+    padding: 5px 10px;
+}
+body > div > form > input[type="submit"]:nth-child(7){
+    margin-left: 10%;
+    margin-top: 8px;
+    background-color: #151515;
+    color: #b0b0b0;
+    font-size: larger;
+    font-family: "American Typewriter";
+    padding: 5px 10px;
+}
+body > div > div > div > a:nth-child(3) > button{
+    margin-left: 10%;
+    margin-top: 8px;
+    background-color: #151515;
+    color: #b0b0b0;
+    font-size: larger;
+    font-family: "American Typewriter";
+    padding: 5px 20px;
+    /*padding-right: 10px;*/
+}
+
+body > div > div > div > a:nth-child(4) > button{
+    margin-left: 5%;
+    margin-top: 8px;
+    background-color: #151515;
+    color: #b0b0b0;
+    font-size: larger;
+    font-family: "American Typewriter";
+    padding: 5px 20px;
+}
+
+.titles-background{
+    margin-top: 30px;
+    background-color: rgba(35, 35, 35, 0.67);
+    padding-bottom: 50px;
+}
+
+
 
 
 
