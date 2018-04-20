@@ -21,8 +21,7 @@ public class User {
     private String password;
 
 //    TODO: Separate concerns in relationships postDetails
-//    @OneToOne
-//    private
+
 
 //TODO: 3 constructors and getters and setters
 
