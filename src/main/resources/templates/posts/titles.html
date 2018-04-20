@@ -6,10 +6,10 @@
 <div><nav th:replace="partials/navbar :: navbar"></nav></div>
 
 <div class="container topMarginShow">
-
-    <div th:each="post : ${posts}">
+    <h1 class="titleblog">Blogs by Title</h1>
+    <div class="titleColor" th:each="post : ${posts}">
         <h2>
-            <a th:href="@{/posts/{postId}/view(postId=${post.getId()})}">
+            <a th:href="@{/posts/{postId}(postId=${post.getId()})}">
             <span th:text="${post.title}"></span>
             </a>
         </h2>
