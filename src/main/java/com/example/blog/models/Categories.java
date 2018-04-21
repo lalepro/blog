@@ -15,7 +15,6 @@ public class Categories {
     private String name;
 
 
-
     //TODO: Many to many relationship between Posts and Categories
     @ManyToMany(mappedBy = "categories")
     private List<Post> posts;
