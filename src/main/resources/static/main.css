@@ -226,6 +226,28 @@ body > div > div > div > a:nth-child(4) > button{
     padding-bottom: 50px;
 }
 
+.blog-images{
+    display: block;
+    margin: 0 auto;
+    margin-left: 30;
+}
+/*TODO: Get Nav Button on Small Screen To not be so Tall*/
+body > div:nth-child(1) > nav > div > div.navbar-header > button > span:nth-child(2) > a{
+    width: 30px;
+    height: 30px;
+}
+/*TODO   DELETE BUTTON ON EDIT PAGE*/
+body > div > a > button{
+    margin-left: 70%;
+    margin-top: 8px;
+    background-color: #151515;
+    color: #b0b0b0;
+    font-size: larger;
+    font-family: "American Typewriter";
+    padding: 5px 20px;
+}
+
+
 
 
 
