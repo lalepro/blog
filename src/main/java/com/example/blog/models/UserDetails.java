@@ -17,11 +17,51 @@ public class UserDetails {
     @Column(columnDefinition = "TEXT")
     private String path;
 
-    @OneToOne
-    private User user;
+    public UserDetails() {
+    }
 
+    public UserDetails(String address, String bio, String path) {
+        this.address = address;
+        this.bio = bio;
+        this.path = path;
+    }
 
+    public UserDetails(long id, String address, String bio, String path) {
+        this.id = id;
+        this.address = address;
+        this.bio = bio;
+        this.path = path;
+    }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
 }
