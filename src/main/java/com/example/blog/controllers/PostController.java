@@ -65,7 +65,8 @@ public class PostController {
     public String insert(@ModelAttribute Post newPost){
         newPost.setUser(usersRepo.findOne(1L ));
         postRepo.save(newPost);
-        return "redirect:/posts" + newPost.getId();
+        return "redirect:/posts";
+//        return "redirect:/posts" + newPost.getId();
     }
 
     @GetMapping("/posts/{id}/edit")
