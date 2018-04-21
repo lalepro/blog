@@ -13,8 +13,8 @@
         <h3>
             <span th:text="${post.body}"></span>
         </h3>
-        <a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}"><button type="button" class="btn btn-default">Edit</button></a>
-        <a th:href="@{/posts/{postId}/delete(postId=${post.getId()})}"><button type="button" class="btn btn-default">Delete</button></a>
+        <h5 class="showPost" th:text="${'Post By: ' + post.user.email}"></h5>
+
     </div>
 </div>
 </div>
