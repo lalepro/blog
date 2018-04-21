@@ -63,8 +63,9 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String insert(@ModelAttribute Post newPost){
+        newPost.setUser(usersRepo.findOne(1L ));
         postRepo.save(newPost);
-        return "redirect:/posts";
+        return "redirect:/posts" + newPost.getId();
     }
 
     @GetMapping("/posts/{id}/edit")
@@ -80,6 +81,12 @@ public class PostController {
         e.setBody(editPost.getBody());
         postRepo.save(e);
         return "redirect:/posts";
+    }
+
+    @GetMapping("posts/{id}/confirm-delete")
+    public String confirmDelete(@PathVariable long id, Model model) {
+        model.addAttribute("post", postRepo.findOne(id));
+        return "/posts/confirm-delete";
     }
 
     @GetMapping("/posts/{id}/delete")
