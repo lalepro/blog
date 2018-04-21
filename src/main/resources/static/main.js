@@ -1,4 +1,4 @@
-var mug = document.querySelector("img");
+var mug = document.querySelector('.img1');
 var angle = 0, lastTime = null;
 function animate(time){
     if (lastTime != null)

@@ -11,20 +11,26 @@
     <textarea th:field="*{body}" th:value="${body}" placeholder="Write your blog"></textarea>
     <br />
     <input th:fieldt="*{location}" th:value="*{location}">
+    <br/>
     <input th:fieldt="*{question}" th:value="*{question}">
+    <br/>
     <input th:fieldt="*{answer}" th:value="*{answer}">
+    <br/>
     <!--<select class="form-control" th:field="*{categories}">-->
         <!--<option value="Social">Travel</option>-->
         <!--<option value="Political">Food</option>-->
         <!--<option value="Financial">Photography</option>-->
         <!--<option value="Sports">Outdoor</option>-->
     <!--</select>-->
-    <div class="form-group">
     <h4>Category Tags:</h4>
+    <!--<div class="form-group">-->
     <div th:each="category : ${categories}">
-    <input type="checkbox" th:text="${category.name}" th:value="${category.id}">
+        <input type="checkbox" th:field="*{categories}" th:value="${category.id}">
+        <label th:for="${#ids.prev('categories')}"
+        th:text="${category.id}"
+        ></label>
     </div>
-    </div>
+    <!--</div>-->
     <input type="submit" />
 </form>
 </div>
