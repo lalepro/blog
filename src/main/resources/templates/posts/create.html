@@ -8,9 +8,23 @@
     <h3 class="blog-entry-title">Blog Entry</h3>
     <input th:field="*{title}" th:value="${title}" placeholder="Blog Title"/>
     <br />
-
     <textarea th:field="*{body}" th:value="${body}" placeholder="Write your blog"></textarea>
     <br />
+    <input th:fieldt="*{location}" th:value="*{location}">
+    <input th:fieldt="*{question}" th:value="*{question}">
+    <input th:fieldt="*{answer}" th:value="*{answer}">
+    <!--<select class="form-control" th:field="*{categories}">-->
+        <!--<option value="Social">Travel</option>-->
+        <!--<option value="Political">Food</option>-->
+        <!--<option value="Financial">Photography</option>-->
+        <!--<option value="Sports">Outdoor</option>-->
+    <!--</select>-->
+    <div class="form-group">
+    <h4>Category Tags:</h4>
+    <div th:each="category : ${categories}">
+    <input type="checkbox" th:text="${category.name}" th:value="${category.id}">
+    </div>
+    </div>
     <input type="submit" />
 </form>
 </div>
