@@ -21,21 +21,25 @@ public class User {
     private String password;
 
 
+    @OneToOne
+    private UserDetails userDetails;
 
     public User() {
     }
 
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password, UserDetails userDetails) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.userDetails = userDetails;
     }
 
-    public User(long id, String username, String email, String password) {
+    public User(long id, String username, String email, String password, UserDetails userDetails) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.userDetails = userDetails;
     }
 
     public long getId() {
@@ -69,4 +73,12 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    public UserDetails getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetails userDetails) {
+        this.userDetails = userDetails;
+    }
+
 }
