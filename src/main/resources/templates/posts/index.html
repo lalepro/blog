@@ -10,23 +10,30 @@
     <h4 class="index-title-log"><a th:href="@{/posts/titles}"><em>View Blogs by Title Only</em></a></h4>
 
 <div class="blogBackground" th:each="post : ${posts}">
-        <div class="feather">
-            <a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}">
-        <img src="../../static/images/Feather.png"/>
-            </a>
-        </div>
-    <h2>
-                <a th:href="@{/posts/{postId}(postId=${post.getId()})}">
+
+    <div class="blog-images" th:each="image : ${post.images}">
+        <img width="50%" th:src="${image.path}" />
+    </div>
+             <h2>
+                <a th:href="@{/posts/{postId}/view(postId=${post.getId()})}">
                     <span id="TitleIndex" th:text="${post.title}"></span>
                 </a>
             </h2>
             <h4>
                 <span th:text="${post.body}"></span>
             </h4>
+    <p><span th:text="${'Location: ' + post.postDetails.location}"></span></p>
+    <p><span th:text="${'Question: ' + post.postDetails.question}"></span></p>
+    <p><span th:text="${'Answer: ' + post.postDetails.answer}"></span></p>
+    <p th:text="${post.user.username}"></p>
+    <p th:text="${post.user.email}"></p>
+    <span th:each="category : ${post.categories}" th:text="${category.name + ', '}"></span>
+
             <!--<div class="edit-image">-->
             <!--<a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}"><img-->
                     <!--src="../../static/images/editIcon.png"/></a>-->
             <!--</div>-->
+
 </div>
 </div>
 <footer th:include="partials/footer :: footer"></footer>
