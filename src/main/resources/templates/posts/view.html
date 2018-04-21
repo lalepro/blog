@@ -15,6 +15,16 @@
             </h4>
         </div>
     </div>
+    <div class="blogBackground" th:each="post : ${posts}">
+    <div class="blog-images" th:each="image : ${post.images}">
+        <img width="50%" th:src="${image.path}" />
+    </div>
+    </div>
+    <div class="feather">
+        <a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}">
+            <img src="../../static/images/Feather.png"/>
+        </a>
+    </div>
 </div>
 <div th:replace="partials/footer :: footer"></div>
 </body>
