@@ -38,11 +38,11 @@ public class PostController {
         return "/posts/titles";
     }
 
-    @GetMapping("/posts/{id}/view")
-    public String viewOne(@PathVariable long id, Model model){
-        model.addAttribute("post", postRepo.findOne(id));
-        return "/posts/view";
-    }
+//    @GetMapping("/posts/{id}/view")
+//    public String viewOne(@PathVariable long id, Model model){
+//        model.addAttribute("post", postRepo.findOne(id));
+//        return "/posts/view";
+//    }
 
     @GetMapping("/posts")
     public String index( Model model){
@@ -65,9 +65,9 @@ public class PostController {
     @GetMapping("/posts/create")
     public String create(Model model){
         Post post = new Post();
-        Iterable<Categories> categories = categoriesRepo.findAll();
+//        Iterable<Categories> categories = categoriesRepo.findAll();
         model.addAttribute("newPost", post);
-        model.addAttribute("categories", categories);
+//        model.addAttribute("categories", categories);
         return "/posts/create";
     }
 
