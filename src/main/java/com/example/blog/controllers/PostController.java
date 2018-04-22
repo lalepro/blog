@@ -1,23 +1,30 @@
 package com.example.blog.controllers;
 
+import com.example.blog.daos.CategoriesRepository;
 import com.example.blog.daos.PostsRepository;
 import com.example.blog.daos.UsersRepository;
+import com.example.blog.models.Categories;
 import com.example.blog.models.Post;
+import com.example.blog.models.User;
 import com.example.blog.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class PostController {
     private final PostService postSvc;
     private final PostsRepository postRepo;
     private final UsersRepository usersRepo;
+    private final CategoriesRepository categoriesRepo;
 
-    public PostController(PostService postSvc, PostsRepository postRepo, UsersRepository usersRepo) {
+    public PostController(PostService postSvc, PostsRepository postRepo, UsersRepository usersRepo, CategoriesRepository categoriesRepo) {
         this.postSvc = postSvc;
         this.postRepo = postRepo;
         this.usersRepo = usersRepo;
+        this.categoriesRepo = categoriesRepo;
     }
     @GetMapping("/blog")
     public String blog(Model model){
@@ -57,14 +64,17 @@ public class PostController {
 
     @GetMapping("/posts/create")
     public String create(Model model){
-        model.addAttribute("newPost", new Post());
+        Post post = new Post();
+        Iterable<Categories> categories = categoriesRepo.findAll();
+        model.addAttribute("newPost", post);
+        model.addAttribute("categories", categories);
         return "/posts/create";
     }
 
     @PostMapping("/posts/create")
-    public String insert(@ModelAttribute Post newPost){
-        newPost.setUser(usersRepo.findOne(1L ));
-        postRepo.save(newPost);
+    public String insert(@ModelAttribute Post post){
+        post.setUser(usersRepo.findById(1));
+        postRepo.save(post);
         return "redirect:/posts";
 //        return "redirect:/posts" + newPost.getId();
     }
