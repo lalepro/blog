@@ -5,19 +5,33 @@
 <body>
 <div th:replace="partials/navbar :: navbar"></div>
 <div class="container topMarginShow">
-<div class="row">
-    <div class="show-blog col s8 offset-s2">
-        <h1 class="showTitle">
-            <span th:text="${post.title}"></span>
-        </h1>
-        <h3>
-            <span th:text="${post.body}"></span>
-        </h3>
-        <h5 class="showPost" th:text="${'Post By: ' + post.user.email}"></h5>
-
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <h1 class="title-center">
+                <span th:text="${post.title}"></span>
+            </h1>
+            <h4 class="body-width">
+                <span th:text="${post.body}"></span>
+            </h4>
+        </div>
     </div>
-</div>
+    <div class="blogBackground" th:each="post : ${posts}">
+        <div class="blog-images" th:each="image : ${post.images}">
+            <img width="50%" th:src="${image.path}" />
+        </div>
+    </div>
+    <div class="feather">
+        <a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}">
+            <img src="../../static/images/Feather.png"/>
+        </a>
+    </div>
+    <h5 class="showPost" th:text="${'Post By: ' + post.user.username}"></h5>
+
+    <div class="blog-images" th:each="image : ${post.images}">
+        <img width="60%" style="display: block; margin: 5px auto; padding-top: 25px" th:src="${image.path}" />
+    </div>
 </div>
 <div th:replace="partials/footer :: footer"></div>
 </body>
 </html>
+
