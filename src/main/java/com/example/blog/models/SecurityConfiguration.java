@@ -38,7 +38,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
                     /* ..Login Config. */
                     .formLogin()
                     .loginPage("/login")
-                    .defaultSuccessUrl("/")
+                    .defaultSuccessUrl("/titles")
                     .permitAll()
                     .and()
                     .logout()

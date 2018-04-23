@@ -29,8 +29,8 @@ public class PostController {
         this.categoriesRepo = categoriesRepo;
     }
     @GetMapping("/")
-    public String blog(Model model){
-        model.addAttribute("posts", postRepo.findAll());
+    public String blog(){
+//        model.addAttribute("posts", postRepo.findAll());
         return "/posts/blog";
     }
 
