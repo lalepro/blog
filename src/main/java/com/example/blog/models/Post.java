@@ -19,7 +19,7 @@ public class Post{
     private String body;
 
     //    TODO: Create the connection with a property to a object
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private User user;
 //    TODO: add relationship to both constructors
 
