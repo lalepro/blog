@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class UserControler {
+public class UserController {
     private UsersRepository usersDao;
     private PasswordEncoder passwordEncoder;
 
-    public UserControler(UsersRepository usersDao, PasswordEncoder passwordEncoder) {
+    public UserController(UsersRepository usersDao, PasswordEncoder passwordEncoder) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
     }
