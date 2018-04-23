@@ -53,7 +53,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
                             "/posts",
                             "/posts/edit",
                             "/posts/create",
-                            "/posts/titles"
+                            "/posts/titles",
+                            "/posts/"
                     )
                     .authenticated()
 //                    .hasAuthority("ADMIN") // only admins can disable ads
