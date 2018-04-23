@@ -12,6 +12,7 @@
         <span th:text="${post.title}"></span>
     </h1>
     <span><a th:href="@{/posts/{postId}/delete(postId=${post.getId()})}"><button type="button" class="btn btn-default">DELETE</button></a></span>
+
     <div class="blogImage" >
         <a th:href="@{/posts/titles}">Return to Blogs</a>
     </div>

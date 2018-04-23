@@ -25,7 +25,7 @@
             <img src="../../static/images/Feather.png"/>
         </a>
     </div>
-    <h5 class="showPost" th:text="${'Post By: ' + post.user.username}"></h5>
+    <!--<h5 class="showPost" th:text="${'Post By: ' + post.user.username}"></h5>-->
 
     <div class="blog-images" th:each="image : ${post.images}">
         <img width="60%" style="display: block; margin: 5px auto; padding-top: 25px" th:src="${image.path}" />
