@@ -1,6 +1,4 @@
 package com.example.blog.models;
-
-
 import com.example.blog.services.UserDetailsLoader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -45,16 +43,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
                     .logoutSuccessUrl("/login?logout")
                     .and()
                     .authorizeRequests()
-                    .antMatchers("/")
+                    .antMatchers("/", "/titles", "/posts", "/posts/{id}")
                     .permitAll()
                     .and()
                     .authorizeRequests()
                     .antMatchers(
-                            "/posts",
                             "/posts/edit",
-                            "/posts/create",
-                            "/posts/titles",
-                            "/posts/"
+                            "/posts/create"
+
                     )
                     .authenticated()
 //                    .hasAuthority("ADMIN") // only admins can disable ads
