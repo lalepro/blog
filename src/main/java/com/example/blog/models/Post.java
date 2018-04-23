@@ -26,8 +26,8 @@ public class Post{
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
     private List<PostImage> images;
 
-    @OneToOne
-    private PostDetails postDetails;
+//    @OneToOne
+//    private PostDetails postDetails;
 
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -41,23 +41,38 @@ public class Post{
 
     public Post() {
     }
-
-    public Post( String title, String body, User user, PostDetails postDetails, List<Categories> categories) {
+    public Post( String title, String body, User user, List<Categories> categories) {
         this.title = title;
         this.body = body;
         this.user = user;
-        this.postDetails = postDetails;
         this.categories = categories;
     }
-    public Post(long id, String title, String body, User user, PostDetails postDetails, List<PostImage> images, List<Categories> categories) {
+
+    public Post(long id, String title, String body, User user, List<PostImage> images, List<Categories> categories) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.user = user;
-        this.postDetails = postDetails;
         this.images = images;
         this.categories =  categories;
     }
+
+//    public Post( String title, String body, User user, PostDetails postDetails, List<Categories> categories) {
+//        this.title = title;
+//        this.body = body;
+//        this.user = user;
+////        this.postDetails = postDetails;
+//        this.categories = categories;
+//    }
+//    public Post(long id, String title, String body, User user, PostDetails postDetails, List<PostImage> images, List<Categories> categories) {
+//        this.id = id;
+//        this.title = title;
+//        this.body = body;
+//        this.user = user;
+//        this.postDetails = postDetails;
+//        this.images = images;
+//        this.categories =  categories;
+//    }
 
     public long getId() {
         return id;
@@ -97,13 +112,13 @@ public class Post{
         this.images = images;
     }
 
-    public PostDetails getPostDetails() {
-        return postDetails;
-    }
+//    public PostDetails getPostDetails() {
+//        return postDetails;
+//    }
 
-    public void setPostDetails(PostDetails postDetails) {
-        this.postDetails = postDetails;
-    }
+//    public void setPostDetails(PostDetails postDetails) {
+//        this.postDetails = postDetails;
+//    }
 
     public List<Categories> getCategories() {
         return categories;

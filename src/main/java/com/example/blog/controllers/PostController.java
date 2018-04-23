@@ -5,12 +5,14 @@ import com.example.blog.daos.PostsRepository;
 import com.example.blog.daos.UsersRepository;
 import com.example.blog.models.Categories;
 import com.example.blog.models.Post;
+//import com.example.blog.models.PostDetails;
 import com.example.blog.models.User;
 import com.example.blog.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -65,15 +67,16 @@ public class PostController {
     @GetMapping("/posts/create")
     public String create(Model model){
         Post post = new Post();
-//        Iterable<Categories> categories = categoriesRepo.findAll();
+        Iterable<Categories> categories = categoriesRepo.findAll();
+//        post.setPostDetails(new PostDetails());
         model.addAttribute("newPost", post);
-//        model.addAttribute("categories", categories);
+        model.addAttribute("categories", categories);
         return "/posts/create";
     }
 
     @PostMapping("/posts/create")
     public String insert(@ModelAttribute Post post){
-        post.setUser(usersRepo.findById(1));
+        post.setUser(usersRepo.findById(2l));
         postRepo.save(post);
         return "redirect:/posts";
 //        return "redirect:/posts" + newPost.getId();
@@ -90,6 +93,7 @@ public class PostController {
         Post e = postRepo.findOne(editPost.getId());
         e.setTitle(editPost.getTitle());
         e.setBody(editPost.getBody());
+
         postRepo.save(e);
         return "redirect:/posts";
     }
@@ -106,4 +110,15 @@ public class PostController {
         return "redirect:/posts";
 
     }
+//    @GetMapping("/posts/test")
+//    public String test(){
+//        Post p = new Post();
+//        p.setTitle("Hello");
+//        p.setBody("body");
+//        p.setPostDetails(new PostDetails("jd", "asdf", "asdf"));
+//        List<Categories> cat = new ArrayList();
+//        p.setCategories(cat);
+//        postRepo.save(p);
+//        return "redirect:/posts";
+//    }
 }

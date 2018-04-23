@@ -279,6 +279,35 @@ body > div > form > input[type="submit"]:nth-child(9){
 
 }
 
+.categories {
+    font-family: "American Typewriter";
+    color: #b0b0b0;
+    font-size: 20px;
+
+}
+
+.create-categories{
+    margin-left: 10%;
+    /*float: left;*/
+}
+
+.float-categories{
+    float: left;
+    padding-right: 15px;
+    display: block;
+    margin: 0 auto;
+
+}
+
+.create-submit-button{
+    margin-left: 17%;
+    margin-top: 8px;
+    background-color: #151515;
+    color: #b0b0b0;
+    font-size: larger;
+    font-family: "American Typewriter";
+    padding: 5px 20px;
+}
 
 
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 //TODO: JPA #4 Create an interface for posts that extends CrudRepository
 @Repository
 public interface PostsRepository extends CrudRepository<Post, Long> {
-    Post findById(long id);
+//    Post findById(long id);
 //    @Override
 //    Iterable<Post> findAll(Iterable<Long> iterable);
 

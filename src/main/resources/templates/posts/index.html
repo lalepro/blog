@@ -22,20 +22,9 @@
             <h4>
                 <span th:text="${post.body}"></span>
             </h4>
-    <!--<input th:if="${map != null}" type="hidden" th:value="${map.version} name="version"/>-->
-    <!--th:if="${post.postDetails != null}"-->
-    <!--TODO: If a field is left null byt user, what to do??-->
-    <p><span th:text="${'Location: ' + post.postDetails.location}"></span></p>
-    <p><span th:text="${'Question: ' + post.postDetails.question}"></span></p>
-    <p><span th:text="${'Answer: ' + post.postDetails.answer}"></span></p>
     <p th:text="${post.user.username}"></p>
     <p th:text="${post.user.email}"></p>
     <span th:each="category : ${post.categories}" th:text="${category.name + ' '}"></span>
-
-            <!--<div class="edit-image">-->
-            <!--<a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}"><img-->
-                    <!--src="../../static/images/editIcon.png"/></a>-->
-            <!--</div>-->
 
 </div>
 </div>

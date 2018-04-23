@@ -11,6 +11,17 @@
         <textarea th:field="*{body}"></textarea>
         <br />
         <input type="hidden" th:field="*{id}" th:value="${id}"/>
+
+        <!--TODO: Work on edit controller-->
+        <!--<h4>Blog Topics</h4>-->
+        <!--<div class="form-group">-->
+            <!--<div class="float-categories" th:each="category : ${categories}">-->
+                <!--<label>-->
+                    <!--<input type="checkbox" th:field="*{categories}" th:value="${category.id}" /><span class="categories" th:text="${category.name}"></span>-->
+                <!--</label>-->
+            <!--</div>-->
+        <!--</div>-->
+
         <input type="submit" />
     </form>
 

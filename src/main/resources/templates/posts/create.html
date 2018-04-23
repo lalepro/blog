@@ -11,45 +11,19 @@
     <br />
     <textarea th:field="*{body}" th:value="${body}" placeholder="Write your blog"></textarea>
     <br />
-    <!--<input th:field="*{postDetails}" th:value="*{answer}" placeholder="Current Location"/>-->
-    <!--<br/>-->
-    <!--<input th:field="*{postDetails}" th:value="*{location}" placeholder="Post a Question"/>-->
-    <!--<br/>-->
-    <!--<input th:field="*{postDetails}" th:value="*{question}" placeholder="Post a Answer"/>-->
-    <br/>
-    <!--<h4>Blog Topics</h4>-->
+    <div class="create-categories">
+    <h4>Blog Topics</h4>
 
-    <!--TODO: Attempt   1-->
-    <!--<div class="form-group">-->
-        <!--<div th:each="category : ${categories}">-->
-            <!--<input type="checkbox" th:text="${category.name}" th:value="${category.id}" />-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--TODO: Attempt 2-->
-    <!--<label>-->
-        <!--<select class="form-control" th:field="*{categories}">-->
-            <!--<option value="Travel">Travel</option>-->
-            <!--<option value="Food">Food</option>-->
-            <!--<option value="Photography">Photography</option>-->
-            <!--<option value="Outdoor">Outdoor</option>-->
-        <!--</select>-->
-    <!--</label>-->
-    <!--TODO: Option 3-->
-    <!--<form style="display:inline-block" th:action="@{/posts/create}" th:object="${post}" method="get">-->
-        <!--<select id="optionsList" name="optionsListId">-->
-            <!--<option th:each="category : ${categories}" th:value="${category.getId()}"-->
-                    <!--th:text="${category.name}">Options</option>-->
-        <!--</select>-->
-        <!--<input type="submit" value="Search"/>-->
-    <!--</form>-->
+    <div class="form-group">
+        <div class="float-categories" th:each="category : ${categories}">
+            <label>
+                <input type="checkbox" th:field="*{categories}" th:value="${category.id}" /> <span class="categories" th:text="${category.name}"></span>
+            </label>
+        </div>
+    </div>
+    <input class="create-submit-button" type="submit" />
 
-    <input type="submit" />
-    <!--IN CURRENT STATE, IF USER INPUTS A TITLE AND BODY-->
-    <!--This application has no explicit mapping for /error, so you are seeing this as a fallback.-->
-    <!--Sun Apr 22 13:26:26 CDT 2018
-There was an unexpected error (type=Internal Server Error, status=500).
-Exception evaluating SpringEL expression: "'Location: ' + post.postDetails.location" (/posts/index:28)-->
-
+    </div>
 </form>
 </div>
 <div th:replace="partials/footer :: footer"></div>
