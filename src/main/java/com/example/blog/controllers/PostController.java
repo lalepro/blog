@@ -10,8 +10,10 @@ import com.example.blog.models.User;
 import com.example.blog.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,14 +71,22 @@ public class PostController {
         Post post = new Post();
         Iterable<Categories> categories = categoriesRepo.findAll();
 //        post.setPostDetails(new PostDetails());
-        model.addAttribute("newPost", post);
+        model.addAttribute("post", post);
         model.addAttribute("categories", categories);
         return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    public String insert(@ModelAttribute Post post){
-        post.setUser(usersRepo.findById(2l));
+    public String insert(@Valid Post post, Errors errors, Model model){
+//        post.setUser(usersRepo.findById(2l));
+        if (post.getTitle().contains("fuck")) {
+            errors.rejectValue("title", "bad-words", "Can't use curse words");
+        }
+
+        if(errors.hasErrors()){
+            model.addAttribute(post);
+                    return "/posts/create";
+        }
         postRepo.save(post);
         return "redirect:/posts";
 //        return "redirect:/posts" + newPost.getId();
@@ -93,7 +103,6 @@ public class PostController {
         Post e = postRepo.findOne(editPost.getId());
         e.setTitle(editPost.getTitle());
         e.setBody(editPost.getBody());
-
         postRepo.save(e);
         return "redirect:/posts";
     }

@@ -1,6 +1,7 @@
 package com.example.blog.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 //TODO: #3 Add the appropriate JPA annotations to your Post class.
@@ -13,9 +14,11 @@ public class Post{
     private long id;
 
     @Column(nullable = false, length = 100)
+    @Size(min=1, max=15, message="Blog just have a Title.")
     private String title;
 
     @Column(nullable = false, columnDefinition = "Text")
+    @Size(min=1, max=10000, message="Cannot submit a empty blog.")
     private String body;
 
     //    TODO: Create the connection with a property to a object
