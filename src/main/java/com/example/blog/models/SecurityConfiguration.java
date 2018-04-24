@@ -48,7 +48,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
                     .and()
                     .authorizeRequests()
                     .antMatchers(
-                            "/posts/edit",
+                            "/posts/{id}/edit",
                             "/posts/create"
 
                     )

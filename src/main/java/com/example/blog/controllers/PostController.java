@@ -29,12 +29,12 @@ public class PostController {
         this.categoriesRepo = categoriesRepo;
     }
     @GetMapping("/")
-    public String blog(){
-//        model.addAttribute("posts", postRepo.findAll());
+    public String blog(Model model){
+        model.addAttribute("posts", postRepo.findAll());
         return "/posts/blog";
     }
 
-    @GetMapping("/posts/titles")
+    @GetMapping("/titles")
     public String titles(Model model){
         model.addAttribute("posts", postRepo.findAll());
         return "/posts/titles";
@@ -71,7 +71,7 @@ public class PostController {
 //        post.setPostDetails(new PostDetails());
         model.addAttribute("newPost", post);
         model.addAttribute("categories", categories);
-        return "/posts/create";
+        return "posts/create";
     }
 
     @PostMapping("/posts/create")
@@ -101,7 +101,7 @@ public class PostController {
     @GetMapping("posts/{id}/confirm-delete")
     public String confirmDelete(@PathVariable long id, Model model) {
         model.addAttribute("post", postRepo.findOne(id));
-        return "/posts/confirm-delete";
+        return "posts/confirm-delete";
     }
 
     @GetMapping("/posts/{id}/delete")
