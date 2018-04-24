@@ -8,15 +8,21 @@
 <div class="container topMarginShow">
 <h1>Create an account</h1>
 <form th:action="@{/sign-up}" method="POST" th:object="${user}">
-    <label for="username">Username</label>
+    <label class="login-font" for="username">Username</label>
+    <br/>
+    <h4 th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:placeholder="username"></h4>
     <input id="username" th:field="*{username}" />
-
-    <label for="email">Email</label>
+    <br/>
+    <label class="login-font" for="email">Email</label>
+    <br/>
+    <h4 th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:placeholder="email"></h4>
     <input id="email" th:field="*{email}" />
-
-    <label for="password">Password</label>
+    <br/>
+    <label class="login-font" for="password">Password</label>
+    <br/>
+    <h4 th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:placeholder="password"></h4>
     <input id="password" type="password" th:field="*{password}" />
-
+    <br/>
     <input value="Sign me up!" type="submit" />
 </form>
 </div>

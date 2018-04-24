@@ -6,15 +6,15 @@
 <div><nav th:replace="partials/navbar :: navbar"></nav></div>
 
 <div class="container topMarginShow">
-    <h1>Blog Garbage</h1>
+    <h1 class="center-title">Blog Garbage</h1>
     <h2>Are You sure you want to Delete this Blog?</h2>
     <h1 class="title-center">
         <span th:text="${post.title}"></span>
     </h1>
     <span><a th:href="@{/posts/{postId}/delete(postId=${post.getId()})}"><button type="button" class="btn btn-default">DELETE</button></a></span>
-
-    <div class="blogImage" >
-        <a th:href="@{/posts/titles}">Return to Blogs</a>
+    <br/>
+    <div>
+        <a class="return-to-blog" th:href="@{/titles}">Return to Blog</a>
     </div>
 
 </div>

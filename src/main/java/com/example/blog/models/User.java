@@ -1,6 +1,7 @@
 package com.example.blog.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -10,13 +11,16 @@ public class User {
     private long id;
 
     @Column(nullable = false, unique = true)
+    @Size(min=1, max=100, message="Please enter a username.")
     private String username;
 
     @Column(nullable = false, unique = true)
+    @Size(min=1, max=100, message="Please enter your email")
 //    TODO: @Email annotation
     private String email;
 
     @Column(nullable = false)
+    @Size(min=1, max=100, message="Please enter a password")
 //    TODO: annotation for length, and characters needed, uppercase, lowercase
     private String password;
 
