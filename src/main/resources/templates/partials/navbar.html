@@ -27,7 +27,12 @@
                 <button class="btn-link btn" style="margin-top: 3px; font-size: 20px">Logout</button>
             </form>
         </div>
-
+        <ul class="nav navbar-right" sec:authorize="isAuthenticated()">
+            <li style="color: #A9A9A9;">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <span sec:authentication="name"></span>
+            </li>
+        </ul>
 
     </div>
 

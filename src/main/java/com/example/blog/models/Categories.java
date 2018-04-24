@@ -11,7 +11,7 @@ public class Categories {
     @Id @GeneratedValue
     private long id;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
 

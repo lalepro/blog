@@ -8,6 +8,7 @@ import com.example.blog.models.Post;
 //import com.example.blog.models.PostDetails;
 import com.example.blog.models.User;
 import com.example.blog.services.PostService;
+import com.example.blog.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -23,12 +24,14 @@ public class PostController {
     private final PostsRepository postRepo;
     private final UsersRepository usersRepo;
     private final CategoriesRepository categoriesRepo;
+    private final UserService userService;
 
-    public PostController(PostService postSvc, PostsRepository postRepo, UsersRepository usersRepo, CategoriesRepository categoriesRepo) {
+    public PostController(PostService postSvc, PostsRepository postRepo, UsersRepository usersRepo, CategoriesRepository categoriesRepo, UserService userService) {
         this.postSvc = postSvc;
         this.postRepo = postRepo;
         this.usersRepo = usersRepo;
         this.categoriesRepo = categoriesRepo;
+        this.userService = userService;
     }
     @GetMapping("/")
     public String blog(Model model){
@@ -38,6 +41,8 @@ public class PostController {
 
     @GetMapping("/titles")
     public String titles(Model model){
+        User user = userService.loggedInUser();
+        System.out.println(user.getId());
         model.addAttribute("posts", postRepo.findAll());
         return "/posts/titles";
     }
@@ -61,7 +66,9 @@ public class PostController {
 
     @GetMapping("/posts/{id}")
     public String show(@PathVariable long id, Model model){
+        Post post = postRepo.findOne(id);
 //        Post post = new Post(1,"first post title", "first post body");
+        model.addAttribute("isPostOwner", userService.isLoggedInAndPostMatchesUser(post.getUser()));
         model.addAttribute("post", postRepo.findOne(id));
         return "/posts/show";
     }
@@ -87,6 +94,11 @@ public class PostController {
             model.addAttribute(post);
                     return "/posts/create";
         }
+        User user = userService.loggedInUser();
+        System.out.println(user.getId());
+
+//        System.out.println(user.getUsername());
+        post.setUser(user);
         postRepo.save(post);
         return "redirect:/posts";
 //        return "redirect:/posts" + newPost.getId();
@@ -115,6 +127,7 @@ public class PostController {
 
     @GetMapping("/posts/{id}/delete")
     public String delete(@PathVariable long id){
+
         postRepo.delete(id);
         return "redirect:/posts";
 

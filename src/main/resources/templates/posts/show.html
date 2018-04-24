@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:include="partials/header :: header('show')"></head>
 <!--${post.getTitle()}-->
 <body>
@@ -20,10 +21,15 @@
             <img width="50%" th:src="${image.path}" />
         </div>
     </div>
-    <div class="feather">
-        <a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}">
-            <img src="../../static/images/Feather.png"/>
-        </a>
+
+    <div sec:authorize="isAuthenticated()">
+        <div th:if="${isPostOwner}">
+            <div class="feather">
+                <a th:href="@{/posts/{postId}/edit(postId=${post.getId()})}">
+                <img src="../../static/images/Feather.png"/>
+                 </a>
+             </div>
+        </div>
     </div>
     <!--<h5 class="showPost" th:text="${'Post By: ' + post.user.username}"></h5>-->
 

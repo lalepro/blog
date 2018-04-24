@@ -3,6 +3,7 @@ package com.example.blog.controllers;
 import com.example.blog.daos.UsersRepository;
 import com.example.blog.models.Post;
 import com.example.blog.models.User;
+import com.example.blog.services.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -18,10 +19,12 @@ import javax.validation.Valid;
 public class UserController {
     private UsersRepository usersDao;
     private PasswordEncoder passwordEncoder;
+    private UserService userService;
 
-    public UserController(UsersRepository usersDao, PasswordEncoder passwordEncoder) {
+    public UserController(UsersRepository usersDao, PasswordEncoder passwordEncoder, UserService userService) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
+        this.userService = userService;
     }
 
     @GetMapping("/sign-up")

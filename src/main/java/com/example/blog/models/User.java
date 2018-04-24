@@ -2,6 +2,7 @@ package com.example.blog.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -25,6 +26,10 @@ public class User {
     private String password;
 
 
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Post> posts;
+
 //    @OneToOne
 //    private UserDetails userDetails;
 public User(User copy) {
@@ -32,6 +37,7 @@ public User(User copy) {
     this.username = copy.username;
     this.email = copy.email;
     this.password = copy.password;
+    this.posts = copy.posts;
 }
 
     public User() {
@@ -102,5 +108,12 @@ public User(User copy) {
 //    public void setUserDetails(UserDetails userDetails) {
 //        this.userDetails = userDetails;
 //    }
+public List<Post> getPosts() {
+    return posts;
+}
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
 
 }
