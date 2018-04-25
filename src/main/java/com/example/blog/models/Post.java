@@ -14,7 +14,7 @@ public class Post{
     private long id;
 
     @Column(nullable = false, length = 100)
-    @Size(min=1, max=15, message="Blog just have a Title.")
+    @Size(min=1, max=100, message="Blog must have a Title.")
     private String title;
 
     @Column(nullable = false, columnDefinition = "Text")
@@ -33,25 +33,25 @@ public class Post{
 //    private PostDetails postDetails;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name="posts_categories",
-            joinColumns = {@JoinColumn(name="post_id")},
-            inverseJoinColumns = {@JoinColumn(name="category_id")}
+            joinColumns = {@JoinColumn(name="post_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name="category_id", referencedColumnName = "id")}
     )
 
-    private List<Categories> categories;
+    private List<Category> categories;
 
     public Post() {
     }
-    public Post( String title, String body, User user, List<Categories> categories) {
+    public Post( String title, String body, User user, List<Category> categories) {
         this.title = title;
         this.body = body;
         this.user = user;
         this.categories = categories;
     }
 
-    public Post(long id, String title, String body, User user, List<PostImage> images, List<Categories> categories) {
+    public Post(long id, String title, String body, User user, List<PostImage> images, List<Category> categories) {
         this.id = id;
         this.title = title;
         this.body = body;
@@ -60,14 +60,14 @@ public class Post{
         this.categories =  categories;
     }
 
-//    public Post( String title, String body, User user, PostDetails postDetails, List<Categories> categories) {
+//    public Post( String title, String body, User user, PostDetails postDetails, List<Category> categories) {
 //        this.title = title;
 //        this.body = body;
 //        this.user = user;
 ////        this.postDetails = postDetails;
 //        this.categories = categories;
 //    }
-//    public Post(long id, String title, String body, User user, PostDetails postDetails, List<PostImage> images, List<Categories> categories) {
+//    public Post(long id, String title, String body, User user, PostDetails postDetails, List<PostImage> images, List<Category> categories) {
 //        this.id = id;
 //        this.title = title;
 //        this.body = body;
@@ -123,11 +123,11 @@ public class Post{
 //        this.postDetails = postDetails;
 //    }
 
-    public List<Categories> getCategories() {
+    public List<Category> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<Categories> categories) {
+    public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
 

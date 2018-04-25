@@ -3,7 +3,7 @@ package com.example.blog.controllers;
 import com.example.blog.daos.CategoriesRepository;
 import com.example.blog.daos.PostsRepository;
 import com.example.blog.daos.UsersRepository;
-import com.example.blog.models.Categories;
+import com.example.blog.models.Category;
 import com.example.blog.models.Post;
 //import com.example.blog.models.PostDetails;
 import com.example.blog.models.User;
@@ -15,8 +15,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class PostController {
@@ -41,8 +39,8 @@ public class PostController {
 
     @GetMapping("/titles")
     public String titles(Model model){
-        User user = userService.loggedInUser();
-        System.out.println(user.getId());
+//        User user = userService.loggedInUser();
+//        System.out.println(user.getId());
         model.addAttribute("posts", postRepo.findAll());
         return "/posts/titles";
     }
@@ -76,7 +74,7 @@ public class PostController {
     @GetMapping("/posts/create")
     public String create(Model model){
         Post post = new Post();
-        Iterable<Categories> categories = categoriesRepo.findAll();
+        Iterable<Category> categories = categoriesRepo.findAll();
 //        post.setPostDetails(new PostDetails());
         model.addAttribute("post", post);
         model.addAttribute("categories", categories);
@@ -125,20 +123,28 @@ public class PostController {
         return "posts/confirm-delete";
     }
 
-    @GetMapping("/posts/{id}/delete")
-    public String delete(@PathVariable long id){
-
+    @PostMapping("/posts/{id}/delete")
+    public String deletePost(@PathVariable long id) {
         postRepo.delete(id);
         return "redirect:/posts";
-
     }
+
+
+
+//    @GetMapping("/posts/{id}/delete")
+//    public String delete(@PathVariable long id){
+//
+//        postRepo.delete(id);
+//        return "redirect:/posts";
+//
+//    }
 //    @GetMapping("/posts/test")
 //    public String test(){
 //        Post p = new Post();
 //        p.setTitle("Hello");
 //        p.setBody("body");
 //        p.setPostDetails(new PostDetails("jd", "asdf", "asdf"));
-//        List<Categories> cat = new ArrayList();
+//        List<Category> cat = new ArrayList();
 //        p.setCategories(cat);
 //        postRepo.save(p);
 //        return "redirect:/posts";

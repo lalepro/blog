@@ -7,14 +7,20 @@
 
 <div class="container topMarginShow">
     <h1 class="center-title">Blog Garbage</h1>
-    <h2>Are You sure you want to Delete this Blog?</h2>
+    <h2 class="center-title">Are You sure you want to Delete this Blog?</h2>
     <h1 class="title-center">
         <span th:text="${post.title}"></span>
     </h1>
-    <span><a th:href="@{/posts/{postId}/delete(postId=${post.getId()})}"><button type="button" class="btn btn-default">DELETE</button></a></span>
+    <!--<span><a th:href="@{/posts/{postId}/delete(postId=${post.id})}"><button type="button" class="btn btn-default">DELETE</button></a></span>-->
     <br/>
+
+    <form th:action="@{/posts/{postId}/delete(postId=${post.id})}" th:method="post" th:object="${post}">
+        <input th:field="*{id}" type="hidden" />
+        <input type="submit" value="Delete"/>
+    </form>
+
     <div>
-        <a class="return-to-blog" th:href="@{/titles}">Return to Blog</a>
+        <a class="return-to-blog" th:href="@{/titles}">Keep Post</a>
     </div>
 
 </div>

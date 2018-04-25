@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "categories")
-public class Categories {
+public class Category {
     @Id @GeneratedValue
     private long id;
 
@@ -15,21 +15,21 @@ public class Categories {
     private String name;
 
 
-    //TODO: Many to many relationship between Posts and Categories
+    //TODO: Many to many relationship between Posts and Category
     @ManyToMany(mappedBy = "categories")
     private List<Post> posts;
 
 
 
-    public Categories() {
+    public Category() {
     }
 
-    public Categories(String name, List<Post> posts) {
+    public Category(String name, List<Post> posts) {
         this.name = name;
         this.posts = posts;
     }
 
-    public Categories(long id, String name, List<Post> posts) {
+    public Category(long id, String name, List<Post> posts) {
         this.id = id;
         this.name = name;
         this.posts = posts;

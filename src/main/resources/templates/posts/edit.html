@@ -6,8 +6,10 @@
 <div class="container topMarginShow">
     <form th:action="@{/posts/edit}" method="post" th:object="${editPost}">
         <h2 class="blog-entry-title">Blog Editing</h2>
+        <h4 th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></h4>
         <input th:field="*{title}" />
         <br />
+        <h4 th:if="${#fields.hasErrors('body')}" th:errors="*{body}"></h4>
         <textarea th:field="*{body}"></textarea>
         <br />
         <input type="hidden" th:field="*{id}" th:value="${id}"/>
@@ -35,3 +37,4 @@
 <div th:replace="partials/footer :: footer"></div>
 </body>
 </html>
+

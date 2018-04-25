@@ -7,12 +7,13 @@
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"><a class="navbar-brand" th:href="@{/posts/}"></a></span>
+                <span class="icon-bar"><a class="navbar-brand" th:href="@{/login}"></a></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" th:href="@{/titles}">Blog</a>
+            <a class="navbar-brand" th:href="@{/}">Blog</a>
         </div>
         <!--class="collapse navbar-collapse"-->
         <div id="navbar" class="collapse navbar-collapse">
@@ -33,6 +34,11 @@
                 <span sec:authentication="name"></span>
             </li>
         </ul>
+    <div class="nav navbar collapsed">
+        <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
+            <button class="btn-link btn nav navbar-right" style="margin-top: 3px; font-size: 20px">Logout</button>
+        </form>
+    </div>
 
     </div>
 
