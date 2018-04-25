@@ -358,7 +358,15 @@ body > div.container.topMarginShow > form > input[type="submit"]:nth-child(2){
 #navbar > ul > li:nth-child(5){
     padding-top: 15px;
     padding-right: 5px;
-    padding-left: 8px;
+    padding-left: 12px;
+}
+/*when nav bar drops down, background color is applied to help see options better*/
+#navbar{
+    background-color: rgba(21, 21, 21, 0.83);
+}
+/*on dropdown, logout needed to be moved over to be inline*/
+#navbar > ul > li:nth-child(4) > form > button{
+    margin-left: 15px;
 }
 
 
