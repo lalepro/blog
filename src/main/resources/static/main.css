@@ -232,7 +232,7 @@ body > div.container.topMarginShow > form > input[type="submit"]:nth-child(13), 
 .blog-images{
     display: block;
     margin: 0 auto;
-    margin-left: 30;
+    margin-left: 30px;
 }
 /*TODO: Get Nav Button on Small Screen To not be so Tall*/
 body > div:nth-child(1) > nav > div > div.navbar-header > button > span:nth-child(2) > a{
@@ -355,6 +355,11 @@ body > div.container.topMarginShow > form > input[type="submit"]:nth-child(2){
     text-align: center;
 }
 
+#navbar > ul > li:nth-child(5){
+    padding-top: 15px;
+    padding-right: 5px;
+    padding-left: 8px;
+}
 
 
 

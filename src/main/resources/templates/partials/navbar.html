@@ -7,29 +7,12 @@
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"><a class="navbar-brand" th:href="@{/login}"></a></span>
+                <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" th:href="@{/}">Blog</a>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
         </div>
         <!--class="collapse navbar-collapse"-->
         <div id="navbar" class="collapse navbar-collapse">
@@ -39,27 +22,31 @@
                 <li sec:authorize="isAuthenticated()"><a th:href="@{/posts/create}">Create</a></li>
                 <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Login</a></li>
                 <li sec:authorize="!isAuthenticated()"><a th:href="@{/sign-up}">Sign Up</a></li>
+                <li>
+                    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
+                        <button class="btn-link btn nav navbar-right" style="margin-top: 3px; font-size: 20px">Logout</button>
+                    </form>
+                </li>
+                <li sec:authorize="isAuthenticated()" style="color: #A9A9A9;">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <span sec:authentication="name"></span>
+                </li>
             </ul>
-            <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
-                <button class="btn-link btn nav navbar-right" style="margin-top: 3px; font-size: 20px">Logout</button>
-            </form>
         </div>
-        <ul class="nav navbar-right collapse navbar-collapse" sec:authorize="isAuthenticated()">
-            <li style="color: #A9A9A9;">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <span sec:authentication="name"></span>
-            </li>
-        </ul>
-    <div class="nav navbar collapsed">
-        <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
-            <button class="btn-link btn nav navbar-right" style="margin-top: 3px; font-size: 20px">Logout</button>
-        </form>
-    </div>
+            <!--<div class="nav navbar collapsed">-->
+                <!--<form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">-->
+                    <!--<button class="btn-link btn nav navbar-right" style="margin-top: 3px; font-size: 20px">Logout</button>-->
+                <!--</form>-->
+            <!--</div>-->
+            <!--<ul class="nav navbar collapsed" sec:authorize="isAuthenticated()">-->
+                <!--<li style="color: #A9A9A9;">-->
+                    <!--<span class="glyphicon glyphicon-user" aria-hidden="true"></span>-->
+                    <!--<span sec:authentication="name"></span>-->
+                <!--</li>-->
+             <!--</ul>-->
 
     </div>
-
 </nav>
-
 </body>
 </html>
 
