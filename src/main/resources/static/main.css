@@ -4,8 +4,13 @@
 .topMarginShow{
     margin-top: 100px;
     background-color: rgba(0, 0, 0, 0.45);
-
 }
+.active-fail{
+    text-align: center;
+    font-family: "American Typewriter";
+    padding-bottom: 78px;
+}
+
 body > div:nth-child(1) > nav{
     height: 66px;
 }
@@ -24,7 +29,14 @@ body > div:nth-child(1) > nav > div > div.navbar-header > a{
     font-size: 25px;
 }
 
+#quote{
+    padding-top: 150px;
+    text-align: center;
 
+}
+#quote-author{
+    margin-left: 60%;
+}
 .topMarginShow{
     padding-bottom: 100px;
 }
@@ -63,7 +75,7 @@ body > div.container.topMarginShow > blockquote{
 body{
     background-color: #151515;
     /*display: block;*/
-    background-image: url("/images/Background.jpg");
+    background-image: url("/images/fail.jpg");
     background-repeat:no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -83,6 +95,17 @@ body{
     /*background-size: cover;*/
     /*position: relative;*/
     /*margin-bottom: 1000px;*/
+}
+
+.sign-up-login-blog-page{
+    font-family: fantasy;
+    font-size: 2em;
+    padding-top: 150px;
+    color: lightgrey;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+
 }
 
 .body-width{
@@ -282,8 +305,16 @@ body > div.container.topMarginShow > form > input[type="submit"]:nth-child(2), b
     margin-left: 10%;
     /*float: left;*/
 }
+body > div > form > h4{
+    text-align: center;
+    font-size: 30px;
+}
+body > div > form > h3{
+    padding-top: 75px;
+}
 
 .float-categories{
+    margin-left: 20%;
     float: left;
     padding-right: 15px;
     display: block;

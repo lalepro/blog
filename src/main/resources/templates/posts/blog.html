@@ -4,13 +4,17 @@
 </head>
 <body>
 <div><nav th:replace="partials/navbar :: navbar"></nav></div>
-
+<h1>Active Fail</h1>
 <div class="container topMarginShow">
-        <blockquote>Exercise the writing muscle every day, even if it is only a letter, notes, a title list, a character sketch, a journal entry. Writers are like dancers, like athletes. Without that exercise, the muscles seize up.
-                – Jane Yolen</blockquote>
-        <div class="blogImage" >
-                <a th:href="@{/titles}"><img class="img1" src="/images/Enter.gif" height="200" width="200"/></a>
-        </div>
+        <h1 id="quote" ><em>Failure is simply an opportunity to tell the world.</em></h1>
+        <h3 id="quote-author"><em>-Active Fail Staff</em></h3>
+
+        <!--<div id="img1" class="blogImage" >-->
+                <!--<a th:href="@{/titles}"><img src="/images/Enter.gif" height="200" width="200"/></a>-->
+        <!--</div>-->
+    <div>
+        <a class="sign-up-login-blog-page" th:href="@{/sign-up}">Wanna Fail Blog?!?</a>
+    </div>
 
 </div>
 <footer th:include="partials/footer :: footer"></footer>

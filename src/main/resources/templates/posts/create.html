@@ -6,17 +6,8 @@
 <div class="container topMarginShow">
 
 <form th:action="@{/posts/create}" method="post" th:object="${post}">
-    <h3 class="blog-entry-title">Blog Entry</h3>
-    <h4 th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></h4>
-    <input th:field="*{title}" th:value="${title}" placeholder="Blog Title"/>
-    <br />
-    <h4 th:if="${#fields.hasErrors('body')}" th:errors="*{body}"></h4>
-    <textarea th:field="*{body}" th:value="${body}" placeholder="Write your blog"></textarea>
-    <br />
-    <div class="create-categories">
-    <h4>Blog Topics</h4>
-
-
+    <h3 class="blog-entry-title">Tell the World your Fail</h3>
+    <h4>Fail Topics</h4>
     <div class="form-group">
         <div class="float-categories" th:each="category : ${categories}">
             <label>
@@ -24,6 +15,16 @@
             </label>
         </div>
     </div>
+    <br/>
+    <div style="clear:both; width:100%"></div>
+    <h4 th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></h4>
+    <input th:field="*{title}" th:value="${title}" placeholder="Blog Title"/>
+    <br />
+    <h4 th:if="${#fields.hasErrors('body')}" th:errors="*{body}"></h4>
+    <textarea th:field="*{body}" th:value="${body}" placeholder="Write your blog"></textarea>
+    <br />
+    <div class="create-categories">
+
     <input class="create-submit-button" type="submit" />
 
     </div>
