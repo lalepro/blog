@@ -24,6 +24,14 @@
     <textarea th:field="*{body}" th:value="${body}" placeholder="Write your blog"></textarea>
     <br />
     <div class="create-categories">
+<!--upload a file-->
+        <form th:action="/fileupload" th:method="post" enctype="multipart/form-data">
+            <label for="file">Upload a file!</label>
+            <input id="file" name="file" type="file" />
+            <br />
+            <input type="submit" value="upload" />
+        </form>
+        <!--*****************-->
 
     <input class="create-submit-button" type="submit" />
 
