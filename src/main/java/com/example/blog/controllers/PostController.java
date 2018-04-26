@@ -6,6 +6,7 @@ import com.example.blog.daos.UsersRepository;
 import com.example.blog.models.Category;
 import com.example.blog.models.Post;
 //import com.example.blog.models.PostDetails;
+import com.example.blog.models.PostImage;
 import com.example.blog.models.User;
 import com.example.blog.services.PostService;
 import com.example.blog.services.UserService;
@@ -15,6 +16,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class PostController {
@@ -23,6 +25,7 @@ public class PostController {
     private final UsersRepository usersRepo;
     private final CategoriesRepository categoriesRepo;
     private final UserService userService;
+
 
     public PostController(PostService postSvc, PostsRepository postRepo, UsersRepository usersRepo, CategoriesRepository categoriesRepo, UserService userService) {
         this.postSvc = postSvc;
@@ -96,6 +99,8 @@ public class PostController {
         System.out.println(user.getId());
 
 //        System.out.println(user.getUsername());
+//        PostImage image
+//        post.setImages(post);
         post.setUser(user);
         postRepo.save(post);
         return "redirect:/posts";

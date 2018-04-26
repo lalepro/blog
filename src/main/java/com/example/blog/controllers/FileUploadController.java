@@ -34,10 +34,11 @@ public class FileUploadController {
         try {
             uploadedFile.transferTo(destinationFile);
             model.addAttribute("message", "File successfully uploaded!");
+
         } catch (IOException e) {
             e.printStackTrace();
             model.addAttribute("message", "Oops! Something went wrong! " + e);
         }
-        return "fileupload";
+        return "redirect:/posts/create";
     }
 }
