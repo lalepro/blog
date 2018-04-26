@@ -100,11 +100,12 @@ body{
 .sign-up-login-blog-page{
     font-family: fantasy;
     font-size: 2em;
-    padding-top: 150px;
+    padding-top: 100px;
     color: lightgrey;
     display: block;
     margin: 0 auto;
     text-align: center;
+    padding-bottom: 50px;
 
 }
 
@@ -151,16 +152,12 @@ h1,h2,h3,h4,h5,h6,p,.font{
     background-color: rgba(32, 32, 32, 0.94);
 }
 
-.row{
-    /*background-color: rgba(32, 32, 32, 0.94);*/
-}
 
 .titles-color{
     color: #b7b7b7;
     font-family: "American Typewriter";
     /*margin-left: 10%;*/
     padding-left: 10%;
-
 }
 
 .titleblog{
@@ -246,6 +243,13 @@ body > div.container.topMarginShow > form > input[type="submit"]:nth-child(13), 
     /*padding-right: 10px;*/
 }
 
+#id{
+    color: #b0b0b0;
+    text-align: right;
+    font-size: 1em;
+    padding-right: 15%;
+}
+
 .titles-background{
     margin-top: 30px;
     background-color: rgba(35, 35, 35, 0.67);
@@ -271,6 +275,24 @@ body > div > a > button{
     font-size: larger;
     font-family: "American Typewriter";
     padding: 5px 20px;
+}
+
+.fail-what{
+    margin-top: 50px;
+    display: block;
+    margin: 0 auto;
+    border: solid black 1px;
+    color: #b0b0b0;
+    background-color: #1d1d1d;
+    font-size: larger;
+    font-family: "American Typewriter";
+}
+
+#fail-define{
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 2em;
+    font-family: "American Typewriter";
 }
 
 body > div.container.topMarginShow > span > a > button,body > div > form > input[type="submit"]:nth-child(9){
@@ -331,6 +353,7 @@ body > div > form > h3{
     font-family: "American Typewriter";
     padding: 5px 20px;
 }
+
 #username,#email,#password {
     color: whitesmoke;
     margin-left: 2%;
@@ -357,7 +380,7 @@ body > div > form > h3{
     font-family: "American Typewriter";
 }
 /*Delete button on delete page*/
-body > div.container.topMarginShow > form > input[type="submit"]:nth-child(2){
+body > div.container.topMarginShow > button > em,body > div.container.topMarginShow > form > input[type="submit"]:nth-child(2){
     display: block;
     margin: 0 auto;
 }

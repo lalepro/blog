@@ -31,6 +31,7 @@
              </div>
         </div>
     </div>
+    <p id="id" th:text="${post.user.username}"></p>
     <!--<h5 class="showPost" th:text="${'Post By: ' + post.user.username}"></h5>-->
 
     <div class="blog-images" th:each="image : ${post.images}">

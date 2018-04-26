@@ -22,7 +22,7 @@
             <h4>
                 <span th:text="${post.body}"></span>
             </h4>
-    <!--<p th:text="${post.user.username}"></p>-->
+    <!--<p th:text="${post.user.id}"></p>-->
     <!--<p th:text="${post.user.email}"></p>-->
     <span class="categories-font" th:each="category : ${post.categories}" th:text="${category.name + ' '}"></span>
 
