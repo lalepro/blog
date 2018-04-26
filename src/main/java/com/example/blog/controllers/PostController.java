@@ -112,7 +112,7 @@ public class PostController {
 //        PostImage image
 //        post.setImages(post);
                 post.setUser(user);
-                post.setPath("/uploads/" + filename);
+                post.setPath("/public/uploads/" + filename);
                 postRepo.save(post);
                 model.addAttribute("message", "File successfully uploaded!");
                 return "redirect:/posts";
