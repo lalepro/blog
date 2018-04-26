@@ -10,12 +10,17 @@ import com.example.blog.models.PostImage;
 import com.example.blog.models.User;
 import com.example.blog.services.PostService;
 import com.example.blog.services.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Controller
@@ -84,27 +89,39 @@ public class PostController {
         return "posts/create";
     }
 
+    @Value("${file-upload-path}")
+    private String uploadPath;
+
     @PostMapping("/posts/create")
-    public String insert(@Valid Post post, Errors errors, Model model){
+    public String insert(@Valid Post post, Errors errors, Model model, @RequestParam(name = "file") MultipartFile uploadedFile){
 //        post.setUser(usersRepo.findById(2l));
         if (post.getTitle().contains("fuck")) {
             errors.rejectValue("title", "bad-words", "Can't use curse words");
         }
 
-        if(errors.hasErrors()){
-            model.addAttribute(post);
-                    return "/posts/create";
-        }
-        User user = userService.loggedInUser();
-        System.out.println(user.getId());
+    {
+            String filename = uploadedFile.getOriginalFilename();
+            String filepath = Paths.get(uploadPath, filename).toString();
+            File destinationFile = new File(filepath);
+            try {
+                uploadedFile.transferTo(destinationFile);
+                User user = userService.loggedInUser();
+//        System.out.println(user.getId());
 
 //        System.out.println(user.getUsername());
 //        PostImage image
 //        post.setImages(post);
-        post.setUser(user);
-        postRepo.save(post);
-        return "redirect:/posts";
-//        return "redirect:/posts" + newPost.getId();
+                post.setUser(user);
+                post.setPath("/uploads/" + filename);
+                postRepo.save(post);
+                model.addAttribute("message", "File successfully uploaded!");
+                return "redirect:/posts";
+            } catch (IOException e) {
+                e.printStackTrace();
+                model.addAttribute("message", "Oops! Something went wrong! " + e);
+            }
+            return "redirect:/posts/create";
+        }
     }
 
     @GetMapping("/posts/{id}/edit")

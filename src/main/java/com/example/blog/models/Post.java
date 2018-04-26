@@ -29,6 +29,11 @@ public class Post{
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
     private List<PostImage> images;
 
+
+
+    @Column
+    private String path;
+
 //    @OneToOne
 //    private PostDetails postDetails;
 
@@ -44,20 +49,22 @@ public class Post{
 
     public Post() {
     }
-    public Post( String title, String body, User user, List<Category> categories) {
+    public Post( String title, String body, User user, List<Category> categories, String path) {
         this.title = title;
         this.body = body;
         this.user = user;
         this.categories = categories;
+        this.path = path;
     }
 
-    public Post(long id, String title, String body, User user, List<PostImage> images, List<Category> categories) {
+    public Post(long id, String title, String body, User user, List<PostImage> images, List<Category> categories, String path) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.user = user;
         this.images = images;
         this.categories =  categories;
+        this.path = path;
     }
 
 //    public Post( String title, String body, User user, PostDetails postDetails, List<Category> categories) {
@@ -129,6 +136,14 @@ public class Post{
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
 }
