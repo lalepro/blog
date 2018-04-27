@@ -12,16 +12,16 @@ public class User {
     private long id;
 
     @Column(nullable = false, unique = true)
-    @Size(min=1, max=100, message="Please enter a username.")
+    @Size(min=1, max=100, message="Username Required")
     private String username;
 
     @Column(nullable = false, unique = true)
-    @Size(min=1, max=100, message="Please enter your email")
+    @Size(min=1, max=100, message="Email Required")
 //    TODO: @Email annotation
     private String email;
 
     @Column(nullable = false)
-    @Size(min=1, max=100, message="Please enter a password")
+    @Size(min=1, max=100, message="Password Required")
 //    TODO: annotation for length, and characters needed, uppercase, lowercase
     private String password;
 
