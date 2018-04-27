@@ -23,4 +23,9 @@ public class UserService {
     public boolean isLoggedInAndPostMatchesUser(User user){
         return isLoggedIn() && (loggedInUser().getId() == user.getId());
     }
+
+//    public boolean isMatch(KennelStaff kennelStaff, PotentialAdopter potentialAdopter){
+//        if(potentialAdopter.getSpecies() == kennelStaff.getSpecies() && potentialAdopter.getBreed() == kennelStaff.getBreed() && potentialAdopter.getSize() == kennelStaff.getSize && potentialAdopter.getAge() == kennelStaff.getAge() && potentialAdopter.getGender() == kennelStaff.getGender() && potentialAdopter.getColor == kennelStaff.getColor())
+//            return notify();
+//    }
 }

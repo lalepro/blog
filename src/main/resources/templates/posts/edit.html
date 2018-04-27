@@ -13,7 +13,12 @@
         <textarea th:field="*{body}"></textarea>
         <br />
         <input type="hidden" th:field="*{id}" th:value="${id}"/>
-
+        <div>
+            <label id="upload-file-title" for="file">Upload An Image</label>
+            <input  id="file" name="file" type="file" />
+            <p th:text="${path}"></p>
+            <br />
+        </div>
         <!--TODO: Work on edit controller-->
         <!--<h4>Blog Topics</h4>-->
         <!--<div class="form-group">-->

@@ -23,19 +23,19 @@
     <h4 th:if="${#fields.hasErrors('body')}" th:errors="*{body}"></h4>
     <textarea th:field="*{body}" th:value="${body}" placeholder="Write your blog"></textarea>
     <br />
-    <div class="create-categories">
 <!--upload a file-->
 
-            <label for="file">Upload a file!</label>
-            <input id="file" name="file" type="file" />
-            <br />
+    <div>
+        <label id="upload-file-title" for="file">Upload An Image</label>
+        <input id="file" name="file" type="file" />
+        <br />
+    </div>
 
 
         <!--*****************-->
 
     <input class="create-submit-button" type="submit" />
 
-    </div>
 </form>
 </div>
 <div th:replace="partials/footer :: footer"></div>

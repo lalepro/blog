@@ -112,7 +112,7 @@ public class PostController {
 //        PostImage image
 //        post.setImages(post);
                 post.setUser(user);
-                post.setPath("/public/uploads/" + filename);
+                post.setPath("/uploads/" + filename);
                 postRepo.save(post);
                 model.addAttribute("message", "File successfully uploaded!");
                 return "redirect:/posts";
@@ -127,6 +127,8 @@ public class PostController {
     @GetMapping("/posts/{id}/edit")
     public String edit(@PathVariable long id, Model model){
         model.addAttribute("editPost", postRepo.findOne(id));
+        model.addAttribute("path", postRepo.findOne(id).getPath());
+        System.out.println(postRepo.findOne(id).getPath());
         return "posts/edit";
     }
 
@@ -135,6 +137,7 @@ public class PostController {
         Post e = postRepo.findOne(editPost.getId());
         e.setTitle(editPost.getTitle());
         e.setBody(editPost.getBody());
+        e.setPath(editPost.getPath());
         postRepo.save(e);
         return "redirect:/posts";
     }
