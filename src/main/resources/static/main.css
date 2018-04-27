@@ -297,6 +297,12 @@ body > div.container.topMarginShow > h1{
     font-size: 2em;
     font-family: "American Typewriter";
 }
+#consent{
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 2em;
+    font-family: "American Typewriter";
+}
 
 body > div.container.topMarginShow > button:nth-child(1){
     padding: 10px;
@@ -311,7 +317,10 @@ body > div.container.topMarginShow > span > a > button,body > div > form > input
     font-size: larger;
     font-family: "American Typewriter";
     padding: 5px 10px;
+}
 
+body > div.container.topMarginShow > button{
+    margin-top: 20px;
 }
 
 body > div.container.topMarginShow > form > input[type="submit"]:nth-child(2), body > div.container.topMarginShow > form > input[type="submit"]:nth-child(5){
