@@ -284,15 +284,23 @@ body > div > a > button{
     border: solid black 1px;
     color: #b0b0b0;
     background-color: #1d1d1d;
-    font-size: larger;
+    font-size: 2em;
     font-family: "American Typewriter";
 }
+body > div.container.topMarginShow > h1{
+    text-align: center;
+}
 
-#fail-define{
+#fail-define, #active-define{
     text-align: center;
     color: #b0b0b0;
     font-size: 2em;
     font-family: "American Typewriter";
+}
+
+body > div.container.topMarginShow > button:nth-child(1){
+    padding: 10px;
+    font-size: 30px;
 }
 
 body > div.container.topMarginShow > span > a > button,body > div > form > input[type="submit"]:nth-child(9){
@@ -407,6 +415,11 @@ body > div.container.topMarginShow > button > em,body > div.container.topMarginS
     font-size: 20px;
     font-family: "American Typewriter";
     text-align: center;
+}
+
+/*sign-up on navbar*/
+#navbar > ul > li:nth-child(4) > a{
+    font-size: larger;
 }
 
 #navbar > ul > li:nth-child(5){

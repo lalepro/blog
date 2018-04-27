@@ -4,8 +4,14 @@
 </head>
 <body>
 <div><nav th:replace="partials/navbar :: navbar"></nav></div>
-<h1>Active Fail</h1>
+
 <div class="container topMarginShow">
+    <button class="btn fail-what" data-toggle="collapse" data-target="#fail-define">Active Fail</button>
+
+    <div id="fail-define" class="collapse">
+        <h3>Active <em>(v.)</em> - Engaged, working, diligent. Fail <em>(v.) -</em> fell short of goal, did not achieve outcome.</h3>
+        <h4>To active fail one must be actively trying. Success happens when failures are overcome.</h4>
+    </div>
         <h1 id="quote" ><em>Failure is simply an opportunity to tell the world.</em></h1>
         <h3 id="quote-author"><em>-Active Fail</em></h3>
 

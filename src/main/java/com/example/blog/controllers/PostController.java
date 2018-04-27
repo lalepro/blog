@@ -36,6 +36,10 @@ public class PostController {
         model.addAttribute("posts", postRepo.findAll());
         return "/posts/blog";
     }
+    @GetMapping("/about")
+    public String about(){
+        return "/posts/about";
+    }
 
     @GetMapping("/titles")
     public String titles(Model model){

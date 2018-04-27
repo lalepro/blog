@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="partials/header :: header('blog')">
+</head>
+<body>
+<div><nav th:replace="partials/navbar :: navbar"></nav></div>
+<div class="container topMarginShow">
+<h1>Active Fail</h1>
+
+    <!--<div id="img1" class="blogImage" >-->
+    <!--<a th:href="@{/titles}"><img src="/images/Enter.gif" height="200" width="200"/></a>-->
+    <!--</div>-->
+    <div>
+        <a class="sign-up-login-blog-page" th:href="@{/sign-up}">Wanna Fail Blog?!?</a>
+    </div>
+    <!--What is Active Fail-->
+    <button class="btn fail-what" data-toggle="collapse" data-target="#active-define"><em>About Me</em></button>
+
+    <div id="active-define" class="collapse">
+         Full Stack Developer from San Antonio Texas. To see more visit my personal site <a href="https://lalepro.github.io./"><em>Click Here!</em></a>
+    </div>
+
+
+</div>
+<footer th:include="partials/footer :: footer"></footer>
+</body>
+</html>
